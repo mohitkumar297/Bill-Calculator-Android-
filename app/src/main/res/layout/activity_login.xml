@@ -9,7 +9,6 @@
     android:alpha="0.8"
     android:orientation="vertical">
 
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +24,7 @@
         >
 
     <com.google.android.material.textfield.TextInputEditText
-
+        android:id="@+id/txtLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="USERNAME"
@@ -47,7 +46,7 @@
         app:passwordToggleTint="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtFirstName"
+            android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#a9a9a9"

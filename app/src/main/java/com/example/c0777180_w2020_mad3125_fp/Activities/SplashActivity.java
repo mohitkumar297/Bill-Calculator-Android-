@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         EasySplashScreen config = new EasySplashScreen(SplashActivity.this)
                 .withFullScreen()
                 .withTargetActivity((LoginActivity.class))
-                .withSplashTimeOut(5000)
+                .withSplashTimeOut(1000)
                 .withBackgroundColor(Color.parseColor("#1a1b29"))
                 .withAfterLogoText("Mohit Kumar\n\n  C0777180");
                 //.withLogo(R.drawable.ddollar);

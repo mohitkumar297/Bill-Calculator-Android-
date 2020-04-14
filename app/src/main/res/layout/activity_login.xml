@@ -9,10 +9,16 @@
     android:alpha="0.8"
     android:orientation="vertical">
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:textColorHint="#a9a9a9"
@@ -25,6 +31,8 @@
         android:hint="USERNAME"
         android:backgroundTint="#a9a9a9"
         android:textColor="@color/white"
+        android:drawableStart="@drawable/ic_email_black_24dp"
+        android:drawablePadding="10dp"
         />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -42,9 +50,31 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#a9a9a9"
             android:hint="PASSWORD"
-            android:textColor="@color/white"
+            android:textColor="#fff"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="10dp"
             />
     </com.google.android.material.textfield.TextInputLayout>
+
+
+    <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remember me?"
+            android:textAlignment="textStart"
+            android:textColor="#a9a9a9"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:buttonTint="#a9a9a9"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:background="@drawable/rounded_btn"
+        android:layout_margin="30dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/gradstart"/>
 
 
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,7 +34,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @Override
     public void onBindViewHolder(@NonNull CustomerListViewHolder holder, int position) {
         Customer customer = this.customerArrayList.get(position);
-        holder.c
+        holder.customerName.setText(customer.getFirstName()+" "+customer.getLastName());
 
 
     }
@@ -44,8 +45,11 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     }
 
     public class CustomerListViewHolder extends RecyclerView.ViewHolder{
+
+        TextView customerName;
         public CustomerListViewHolder(@NonNull View itemView) {
             super(itemView);
+            customerName = itemView.findViewById(R.id.customerName);
         }
     }
 }

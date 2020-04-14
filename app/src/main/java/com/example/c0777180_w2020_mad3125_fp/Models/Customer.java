@@ -11,5 +11,5 @@ public class Customer {
     private String fullName;
     private String emailID;
     HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
-    
+
 }

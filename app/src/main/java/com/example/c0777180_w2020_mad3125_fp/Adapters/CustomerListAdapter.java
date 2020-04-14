@@ -1,5 +1,7 @@
 package com.example.c0777180_w2020_mad3125_fp.Adapters;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -7,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
+import com.example.c0777180_w2020_mad3125_fp.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +25,10 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @NonNull
     @Override
     public CustomerListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.customer_list_items,parent,false);
+         CustomerListViewHolder customerListViewHolder = new CustomerListViewHolder(view);
 
-
-        return null;
+        return customerListViewHolder;
     }
 
     @Override

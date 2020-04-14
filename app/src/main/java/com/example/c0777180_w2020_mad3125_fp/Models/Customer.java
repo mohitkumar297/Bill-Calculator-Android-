@@ -1,5 +1,6 @@
 package com.example.c0777180_w2020_mad3125_fp.Models;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Customer {
@@ -9,4 +10,6 @@ public class Customer {
     private String lastName;
     private String fullName;
     private String emailID;
+    HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
+    
 }

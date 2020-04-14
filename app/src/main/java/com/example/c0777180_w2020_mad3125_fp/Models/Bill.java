@@ -23,4 +23,5 @@ public abstract class Bill {
         this.billType = billType;
         this.totalBill = totalBill;
     }
+
 }

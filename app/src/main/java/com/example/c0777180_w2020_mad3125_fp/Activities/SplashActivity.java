@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.c0777180_w2020_mad3125_fp.R;
 
-public class MainActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

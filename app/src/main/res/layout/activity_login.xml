@@ -1,26 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayoutLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.LoginActivity"
-    android:background="@drawable/login_bg_img"
-    android:alpha="0.8">
+    android:background="@drawable/login_background"
+    android:alpha="0.8"
+    android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+       android:layout_marginTop="200dp"
+       android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColorHint="@color/white"
+        >
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/edtFirstName"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        android:layout_weight="1"
-        android:hint="Enter First Name"
+        android:hint="USERNAME"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
         />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+       android:layout_marginTop="20dp"
+        android:textColorHint="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/white"
+            android:hint="PASSWORD"
+            android:textColor="@color/white"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-</LinearLayoutLayout>
+
+</LinearLayout>

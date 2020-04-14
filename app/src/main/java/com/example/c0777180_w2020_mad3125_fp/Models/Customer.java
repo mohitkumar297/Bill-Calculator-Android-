@@ -14,6 +14,14 @@ public class Customer implements IDisplay {
     private String dateOfBirth;
     private String gender;
 
+    public Customer(String customerID, String firstName, String lastName, String emailID, String dateOfBirth, String gender) {
+        this.customerID = customerID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailID = emailID;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+    }
 
     @Override
     public void display() {

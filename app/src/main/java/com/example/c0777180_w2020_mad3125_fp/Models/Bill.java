@@ -5,7 +5,7 @@ import java.util.Date;
 
 
 
-public abstract class Bill {
+public abstract class Bill implements IDisplay {
 
     enum BillType {
         Mobile,

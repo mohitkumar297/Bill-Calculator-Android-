@@ -28,4 +28,9 @@ public class Hydro extends Bill {
     public void setUnitsConsumed(int unitsConsumed) {
         this.unitsConsumed = unitsConsumed;
     }
+
+    @Override
+    public void display() {
+
+    }
 }

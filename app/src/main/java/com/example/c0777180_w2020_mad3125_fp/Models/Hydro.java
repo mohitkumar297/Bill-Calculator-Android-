@@ -7,7 +7,7 @@ public class Hydro extends Bill {
     private String agencyName;
     private int unitsConsumed;
 
-    public Hydro(String billID, LocalDate billDate, BillType billType, double totalBill, String agencyName, Integer unitsConsumed) {
+    public Hydro(String billID, String billDate, BillType billType, double totalBill, String agencyName, Integer unitsConsumed) {
         super(billID, billDate, billType, totalBill);
         this.agencyName = agencyName;
         this.unitsConsumed = unitsConsumed;
@@ -28,6 +28,7 @@ public class Hydro extends Bill {
     public void setUnitsConsumed(int unitsConsumed) {
         this.unitsConsumed = unitsConsumed;
     }
+
 
     @Override
     public void display() {

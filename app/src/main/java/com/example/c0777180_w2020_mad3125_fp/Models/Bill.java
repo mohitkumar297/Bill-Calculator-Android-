@@ -13,11 +13,11 @@ public abstract class Bill implements IDisplay {
         Internet
     }
         private String billID;
-        private LocalDate billDate;
+        private String billDate;
         private BillType billType;
         private double totalBill;
 
-    public Bill(String billID, LocalDate billDate, BillType billType, double totalBill) {
+    public Bill(String billID, String billDate, BillType billType, double totalBill) {
         this.billID = billID;
         this.billDate = billDate;
         this.billType = billType;

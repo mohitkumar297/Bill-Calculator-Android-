@@ -3,7 +3,7 @@ package com.example.c0777180_w2020_mad3125_fp.Models;
 import java.util.HashMap;
 import java.util.List;
 
-public class Customer {
+public class Customer implements IDisplay {
 
     private String customerID;
     private String firstName;
@@ -12,4 +12,8 @@ public class Customer {
     private String emailID;
     HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
 
+    @Override
+    public void display() {
+
+    }
 }

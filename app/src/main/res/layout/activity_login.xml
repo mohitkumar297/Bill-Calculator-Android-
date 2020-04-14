@@ -60,14 +60,15 @@
 
 
     <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Remember me?"
-            android:textAlignment="textStart"
-            android:textColor="#a9a9a9"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="15dp"
-            android:buttonTint="#a9a9a9"/>
+        android:id="@+id/chkRemember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remember me?"
+        android:textAlignment="textStart"
+        android:textColor="#a9a9a9"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:buttonTint="#a9a9a9"/>
 
     <Button
         android:id="@+id/btnLogin"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText txtPassword;
     @InjectView(R.id.btnLogin)
     Button btnLogin;
+    @InjectView(R.id.chkRemember)
+    CheckBox chkRemember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, CustomerListActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Access Denied", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Invalid User Id or Password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -44,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public boolean validateUser() {
-        if ((txtLogin.getText().toString() == "admin@gmail.com") && (txtPassword.getText().toString() == "admin123")) {
+        if ((txtLogin.getText().toString().equals("admin@gmail.com")) && (txtPassword.getText().toString().equals("admin123"))) {
             return true;
         } else {
             return false;

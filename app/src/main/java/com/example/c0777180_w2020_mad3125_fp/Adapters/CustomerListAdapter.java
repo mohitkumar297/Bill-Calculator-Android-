@@ -6,11 +6,24 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.CustomerListViewHolder> {
+
+    ArrayList<Customer> customerArrayList;
+
+    public CustomerListAdapter(ArrayList<Customer> customerArrayList) {
+        this.customerArrayList = customerArrayList;
+    }
 
     @NonNull
     @Override
     public CustomerListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+
         return null;
     }
 

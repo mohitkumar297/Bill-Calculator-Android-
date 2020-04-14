@@ -42,7 +42,9 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
        android:layout_marginTop="20dp"
-        android:textColorHint="#a9a9a9">
+        android:textColorHint="#a9a9a9"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtFirstName"
@@ -50,6 +52,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#a9a9a9"
             android:hint="PASSWORD"
+            android:inputType="textPassword"
             android:textColor="#fff"
             android:drawableStart="@drawable/ic_lock_black_24dp"
             android:drawablePadding="10dp"

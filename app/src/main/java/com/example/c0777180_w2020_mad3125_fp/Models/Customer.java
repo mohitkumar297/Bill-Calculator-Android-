@@ -2,9 +2,12 @@ package com.example.c0777180_w2020_mad3125_fp.Models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,9 +19,9 @@ public class Customer implements IDisplay, Parcelable {
     private String emailID;
     private String dateOfBirth;
     private String gender;
-    private Double totalBill;
-    private ArrayList<Bill> customerBills;
-
+   // private Double totalBill;
+   public ArrayList<Bill> customerBills = new ArrayList<Bill>();
+   //private HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
 
     public Customer(String customerID, String firstName, String lastName, String emailID, String dateOfBirth, String gender) {
         this.customerID = customerID;
@@ -27,12 +30,11 @@ public class Customer implements IDisplay, Parcelable {
         this.emailID = emailID;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.customerBills = getCustomerBills();
+       // this.customerBills =
+        //this.totalBill = calculateBill();
     }
 
-    public void addBill(Bill bill){
-        this.customerBills.add(bill);
-    }
+
 
     protected Customer(Parcel in) {
         customerID = in.readString();
@@ -41,6 +43,9 @@ public class Customer implements IDisplay, Parcelable {
         emailID = in.readString();
         dateOfBirth = in.readString();
         gender = in.readString();
+        //totalBill = in.readDouble();
+        //customerBills = in.readHashMap(Bill.class.getClassLoader());
+        customerBills = in.readArrayList(Bill.class.getClassLoader());
     }
 
     public static final Creator<Customer> CREATOR = new Creator<Customer>() {
@@ -87,14 +92,6 @@ public class Customer implements IDisplay, Parcelable {
         this.emailID = emailID;
     }
 
-    public ArrayList<Bill> getCustomerBills() {
-        return customerBills;
-    }
-
-    public void setCustomerBills( ArrayList<Bill> customerBills) {
-        this.customerBills = customerBills;
-    }
-
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -109,6 +106,60 @@ public class Customer implements IDisplay, Parcelable {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+
+
+//    public void addBilltoCustomer(String billId, Bill bill)
+//    {
+//        this.customerBills.put(billId, bill);
+//    }
+
+    public void addBilltoCustomer(Bill bill)
+    {
+        this.customerBills.add(bill);
+    }
+
+//    public HashMap<String, Bill> getCustomerBills() {
+//        return customerBills;
+//    }
+//
+//    public void setCustomerBills(HashMap<String, Bill> customerBills) {
+//        this.customerBills = customerBills;
+//    }
+
+    public ArrayList<Bill> getCustomerBills() {
+        return customerBills;
+    }
+
+    public void setCustomerBills(ArrayList<Bill> customerBills) {
+        this.customerBills = customerBills;
+    }
+
+
+//    public ArrayList<Bill> getBills()
+//    {
+//        Collection<Bill> v = customerBills.values();
+//        ArrayList<Bill> allBills = new ArrayList<>(v);
+//        return allBills;
+//    }
+
+
+//    public Double getTotalBill() {
+//        return totalBill;
+//    }
+//
+//    public void setTotalBill(Double totalBill) {
+//        this.totalBill = totalBill;
+//    }
+
+
+    public double calculateBill() {
+        double total = 0.0d;
+        for (Bill i : customerBills) {
+            total = total + i.getBillAmount();
+        }
+        return total;
     }
 
     @Override
@@ -130,5 +181,8 @@ public class Customer implements IDisplay, Parcelable {
         dest.writeString(emailID);
         dest.writeString(dateOfBirth);
         dest.writeString(gender);
+       // dest.writeDouble(totalBill);
+        //dest.writeMap(customerBills);
+        dest.writeList(customerBills);
     }
 }

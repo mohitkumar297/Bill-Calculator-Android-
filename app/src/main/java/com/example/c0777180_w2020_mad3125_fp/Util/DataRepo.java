@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class DataRepo {
     private static DataRepo instance = new DataRepo();
     private ArrayList<Customer> customerArrayList = new ArrayList<>();
-    private HashMap<String, Bill> customerBills = new HashMap<>();
+    //private HashMap<String, Bill> customerBills = new HashMap<>();
     private DataRepo() {
         loadData();
     }
@@ -23,21 +23,26 @@ public class DataRepo {
     }
 
     public void loadData(){
-        Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","10/05/1995","Male");
-
-        Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","10/05/1995","Male");
-
-        Customer C3 = new Customer("C003","Jordan","Henderson","jorhen@gmail.com","10/05/1995","Male");
-
-        Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","10/05/1995","Male");
-
         Hydro H1 = new Hydro("HYD001","12/05/2020", Bill.BillType.Hydro,203.4,"Liquid flow",345);
 
+        Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","10/05/1995","Male");
+
+//        Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","10/05/1995","Male");
+//
+//        Customer C3 = new Customer("C003","Jordan","Henderson","jorhen@gmail.com","10/05/1995","Male");
+//
+//        Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","10/05/1995","Male");
+
+        C1.addBilltoCustomer(H1);
+       // C1.customerBills.add(H1);
+//        C2.addBilltoCustomer("HYD001",H1);
+//        C3.addBilltoCustomer("HYD001",H1);
+//        C4.addBilltoCustomer("HYD001",H1);
+
         customerArrayList.add(C1);
-        C1.addBill(H1);
-        customerArrayList.add(C2);
-        customerArrayList.add(C3);
-        customerArrayList.add(C4);
+//        customerArrayList.add(C2);
+//        customerArrayList.add(C3);
+//        customerArrayList.add(C4);
 
 
 

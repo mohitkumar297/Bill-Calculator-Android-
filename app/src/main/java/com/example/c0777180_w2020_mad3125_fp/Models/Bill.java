@@ -1,11 +1,14 @@
 package com.example.c0777180_w2020_mad3125_fp.Models;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
 
 
-public abstract class Bill implements IDisplay {
+public abstract class Bill implements IDisplay , Serializable {
 
    public enum BillType {
         Mobile,
@@ -15,13 +18,13 @@ public abstract class Bill implements IDisplay {
         private String billID;
         private String billDate;
         private BillType billType;
-        private double totalBill;
+        public double billAmount=1.0;
 
-    public Bill(String billID, String billDate, BillType billType, double totalBill) {
+    public Bill(String billID, String billDate, BillType billType, double billAmount) {
         this.billID = billID;
         this.billDate = billDate;
         this.billType = billType;
-        this.totalBill = totalBill;
+        this.billAmount = billAmount;
     }
 
     public String getBillID() {
@@ -48,11 +51,11 @@ public abstract class Bill implements IDisplay {
         this.billType = billType;
     }
 
-    public double getTotalBill() {
-        return totalBill;
+    public double getBillAmount() {
+        return billAmount;
     }
 
-    public void setTotalBill(double totalBill) {
-        this.totalBill = totalBill;
+    public void setBillAmount(double billAmount) {
+        this.billAmount = billAmount;
     }
 }

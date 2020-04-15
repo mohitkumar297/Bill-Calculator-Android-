@@ -13,6 +13,9 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="18dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
         />
 
     <TextView
@@ -21,6 +24,9 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="18dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
         />
 
     <TextView
@@ -29,6 +35,9 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="18dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
         />
     <TextView
         android:id="@+id/customerGender"
@@ -36,6 +45,9 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="18dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
         />
     <TextView
         android:id="@+id/customerDateOfBirth"
@@ -43,7 +55,25 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="18dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
         />
+    <TextView
+        android:id="@+id/customerTotalBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBillList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 
 

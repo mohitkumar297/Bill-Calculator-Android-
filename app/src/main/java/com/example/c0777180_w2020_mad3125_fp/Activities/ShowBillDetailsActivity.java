@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
@@ -27,6 +28,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     TextView customerGender;
     @InjectView(R.id.customerDateOfBirth)
     TextView customerDateOfBirth;
+    @InjectView(R.id.customerTotalBill)
+    TextView customerTotalBill;
+    @InjectView(R.id.rvBillList)
+    RecyclerView rvBillList;
 
     private ArrayList bills;
 
@@ -46,11 +51,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
         bills = customer.getCustomerBills();
 
-        customerID.setText(customer.getEmailID());
-        customerFullName.setText(customer.getFirstName()+" "+customer.getLastName());
+        customerID.setText(customer.getCustomerID());
+        customerFullName.setText(customer.getFirstName() + " " + customer.getLastName());
         customerDateOfBirth.setText(customer.getDateOfBirth());
         customerGender.setText(customer.getGender());
         customerEmail.setText(customer.getEmailID());
+        customerTotalBill.setText("" + customer.calculateBill());
 //
 //
 //        for (Bill i : customer.getCustomerBills()){

@@ -19,7 +19,7 @@ public class Customer implements IDisplay, Parcelable {
     private String emailID;
     private String dateOfBirth;
     private String gender;
-   // private Double totalBill;
+    private Double totalBill;
    public ArrayList<Bill> customerBills = new ArrayList<Bill>();
    //private HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
 
@@ -31,7 +31,7 @@ public class Customer implements IDisplay, Parcelable {
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
        // this.customerBills =
-        //this.totalBill = calculateBill();
+        this.totalBill = calculateBill();
     }
 
 
@@ -43,7 +43,7 @@ public class Customer implements IDisplay, Parcelable {
         emailID = in.readString();
         dateOfBirth = in.readString();
         gender = in.readString();
-        //totalBill = in.readDouble();
+        totalBill = in.readDouble();
         //customerBills = in.readHashMap(Bill.class.getClassLoader());
         customerBills = in.readArrayList(Bill.class.getClassLoader());
     }
@@ -145,13 +145,13 @@ public class Customer implements IDisplay, Parcelable {
 //    }
 
 
-//    public Double getTotalBill() {
-//        return totalBill;
-//    }
-//
-//    public void setTotalBill(Double totalBill) {
-//        this.totalBill = totalBill;
-//    }
+    public Double getTotalBill() {
+        return totalBill;
+    }
+
+    public void setTotalBill(Double totalBill) {
+        this.totalBill = totalBill;
+    }
 
 
     public double calculateBill() {
@@ -181,7 +181,7 @@ public class Customer implements IDisplay, Parcelable {
         dest.writeString(emailID);
         dest.writeString(dateOfBirth);
         dest.writeString(gender);
-       // dest.writeDouble(totalBill);
+        dest.writeDouble(totalBill);
         //dest.writeMap(customerBills);
         dest.writeList(customerBills);
     }

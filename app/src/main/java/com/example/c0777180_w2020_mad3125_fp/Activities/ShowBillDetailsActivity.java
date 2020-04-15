@@ -2,14 +2,11 @@ package com.example.c0777180_w2020_mad3125_fp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
-import com.example.c0777180_w2020_mad3125_fp.Models.Hydro;
 import com.example.c0777180_w2020_mad3125_fp.R;
 
 import java.util.ArrayList;
@@ -19,10 +16,8 @@ import butterknife.InjectView;
 
 public class ShowBillDetailsActivity extends AppCompatActivity {
 
-    @InjectView(R.id.textView)
-    TextView textView;
-    @InjectView(R.id.textView2)
-    TextView textView2;
+
+    
 
     private ArrayList bills;
 //    private ArrayList<Bill> Bills;
@@ -41,12 +36,13 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
         bills = customer.getCustomerBills();
 
-        textView.setText(""+bills.size());
-
-
-        for (Bill i : customer.getCustomerBills()){
-            textView.setText(customer.getFirstName().toUpperCase() + "          " + customer.calculateBill() + " ");
-            //textView.setText(i.getBillID()+"   "+i.billAmount+"   "+i.getBillType()+""+customer.getLastName());
-        }
+        customerDetail.setText(customer.getFirstName()+" "+customer.getLastName()+"\n"+customer.getEmailID()+"\n"+customer.getGender());
+//        textView.setText(""+bills.size());
+//
+//
+//        for (Bill i : customer.getCustomerBills()){
+//            textView.setText(customer.getFirstName().toUpperCase() + "          " + customer.calculateBill() + " ");
+//            //textView.setText(i.getBillID()+"   "+i.billAmount+"   "+i.getBillType()+""+customer.getLastName());
+//        }
     }
 }

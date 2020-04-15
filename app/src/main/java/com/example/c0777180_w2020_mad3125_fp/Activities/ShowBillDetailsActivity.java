@@ -17,8 +17,16 @@ import butterknife.InjectView;
 public class ShowBillDetailsActivity extends AppCompatActivity {
 
 
-    
-
+    @InjectView(R.id.customerID)
+    TextView customerID;
+    @InjectView(R.id.customerFullName)
+    TextView customerFullName;
+    @InjectView(R.id.customerEmail)
+    TextView customerEmail;
+    @InjectView(R.id.customerGender)
+    TextView customerGender;
+    @InjectView(R.id.customerDateOfBirth)
+    TextView customerDateOfBirth;
     private ArrayList bills;
 //    private ArrayList<Bill> Bills;
 //    private ArrayList<Bill> internetBill;
@@ -36,8 +44,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
         bills = customer.getCustomerBills();
 
-        customerDetail.setText(customer.getFirstName()+" "+customer.getLastName()+"\n"+customer.getEmailID()+"\n"+customer.getGender());
-//        textView.setText(""+bills.size());
+
 //
 //
 //        for (Bill i : customer.getCustomerBills()){

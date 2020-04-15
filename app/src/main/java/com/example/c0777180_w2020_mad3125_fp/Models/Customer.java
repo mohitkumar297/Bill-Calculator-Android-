@@ -1,16 +1,19 @@
 package com.example.c0777180_w2020_mad3125_fp.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 
-public class Customer implements IDisplay {
+public class Customer implements IDisplay, Parcelable {
 
     private String customerID;
     private String firstName;
     private String lastName;
     private String emailID;
-    HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
+    private HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
     private String dateOfBirth;
     private String gender;
 
@@ -21,7 +24,29 @@ public class Customer implements IDisplay {
         this.emailID = emailID;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
+        this.customerBills = getCustomerBills();
     }
+
+    protected Customer(Parcel in) {
+        customerID = in.readString();
+        firstName = in.readString();
+        lastName = in.readString();
+        emailID = in.readString();
+        dateOfBirth = in.readString();
+        gender = in.readString();
+    }
+
+    public static final Creator<Customer> CREATOR = new Creator<Customer>() {
+        @Override
+        public Customer createFromParcel(Parcel in) {
+            return new Customer(in);
+        }
+
+        @Override
+        public Customer[] newArray(int size) {
+            return new Customer[size];
+        }
+    };
 
     public String getCustomerID() {
         return customerID;
@@ -82,5 +107,21 @@ public class Customer implements IDisplay {
     @Override
     public void display() {
 
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(customerID);
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(emailID);
+        dest.writeString(dateOfBirth);
+        dest.writeString(gender);
     }
 }

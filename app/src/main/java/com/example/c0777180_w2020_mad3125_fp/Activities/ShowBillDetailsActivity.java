@@ -26,5 +26,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Customer customer = intent.getParcelableExtra("CUSTOMERINFO");
         textView.setText(customer.getFirstName().toUpperCase()+" "+customer.getEmailID().toUpperCase()+" "+ customer.getDateOfBirth());
+
     }
+
 }

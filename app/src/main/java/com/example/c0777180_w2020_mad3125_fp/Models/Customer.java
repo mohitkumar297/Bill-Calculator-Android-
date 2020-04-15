@@ -27,6 +27,10 @@ public class Customer implements IDisplay, Parcelable {
         this.customerBills = getCustomerBills();
     }
 
+    public void addBill(String id, Bill bill){
+        this.customerBills.put(id, bill);
+    }
+
     protected Customer(Parcel in) {
         customerID = in.readString();
         firstName = in.readString();

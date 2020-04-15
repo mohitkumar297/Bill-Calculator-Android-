@@ -7,7 +7,7 @@ import java.util.Date;
 
 public abstract class Bill implements IDisplay {
 
-    enum BillType {
+   public enum BillType {
         Mobile,
         Hydro,
         Internet

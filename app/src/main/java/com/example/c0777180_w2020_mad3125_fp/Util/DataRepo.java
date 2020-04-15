@@ -34,7 +34,7 @@ public class DataRepo {
         Hydro H1 = new Hydro("HYD001","12/05/2020", Bill.BillType.Hydro,203.4,"Liquid flow",345);
 
         customerArrayList.add(C1);
-        C1.addBill(C1.getCustomerID(),H1);
+        C1.addBill(H1);
         customerArrayList.add(C2);
         customerArrayList.add(C3);
         customerArrayList.add(C4);

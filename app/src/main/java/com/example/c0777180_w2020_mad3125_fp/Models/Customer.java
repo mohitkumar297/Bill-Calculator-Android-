@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,9 +14,11 @@ public class Customer implements IDisplay, Parcelable {
     private String firstName;
     private String lastName;
     private String emailID;
-    private HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
     private String dateOfBirth;
     private String gender;
+    private Double totalBill;
+    private ArrayList<Bill> customerBills;
+
 
     public Customer(String customerID, String firstName, String lastName, String emailID, String dateOfBirth, String gender) {
         this.customerID = customerID;
@@ -27,8 +30,8 @@ public class Customer implements IDisplay, Parcelable {
         this.customerBills = getCustomerBills();
     }
 
-    public void addBill(String id, Bill bill){
-        this.customerBills.put(id, bill);
+    public void addBill(Bill bill){
+        this.customerBills.add(bill);
     }
 
     protected Customer(Parcel in) {
@@ -84,11 +87,11 @@ public class Customer implements IDisplay, Parcelable {
         this.emailID = emailID;
     }
 
-    public HashMap<String, Bill> getCustomerBills() {
+    public ArrayList<Bill> getCustomerBills() {
         return customerBills;
     }
 
-    public void setCustomerBills(HashMap<String, Bill> customerBills) {
+    public void setCustomerBills( ArrayList<Bill> customerBills) {
         this.customerBills = customerBills;
     }
 

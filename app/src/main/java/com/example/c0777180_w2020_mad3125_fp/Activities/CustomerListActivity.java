@@ -33,6 +33,7 @@ public class CustomerListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_list);
         ButterKnife.inject(this);
+
         populateCustomers();
         customerListAdapter = new CustomerListAdapter(customerArrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);

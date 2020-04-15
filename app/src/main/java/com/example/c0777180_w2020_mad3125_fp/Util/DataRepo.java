@@ -22,5 +22,12 @@ public class DataRepo {
     public void loadData(){
         Customer C1 = new Customer("C001","Mohit","Kumar","mohit@gmail.com","10/05/1995","Male");
         customerArrayList.add(C1);
+        Customer C2 = new Customer("C001","Mohit","Kumar","mohit@gmail.com","10/05/1995","Male");
+        customerArrayList.add(C2);
+        Customer C3 = new Customer("C001","Mohit","Kumar","mohit@gmail.com","10/05/1995","Male");
+        customerArrayList.add(C3);
+        Customer C4 = new Customer("C001","Mohit","Kumar","mohit@gmail.com","10/05/1995","Male");
+        customerArrayList.add(C4);
+
     }
 }

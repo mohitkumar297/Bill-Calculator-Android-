@@ -27,7 +27,9 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     TextView customerGender;
     @InjectView(R.id.customerDateOfBirth)
     TextView customerDateOfBirth;
+
     private ArrayList bills;
+
 //    private ArrayList<Bill> Bills;
 //    private ArrayList<Bill> internetBill;
 //    private ArrayList<Bill> hydroBill;
@@ -44,7 +46,11 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
         bills = customer.getCustomerBills();
 
-
+        customerID.setText(customer.getEmailID());
+        customerFullName.setText(customer.getFirstName()+" "+customer.getLastName());
+        customerDateOfBirth.setText(customer.getDateOfBirth());
+        customerGender.setText(customer.getGender());
+        customerEmail.setText(customer.getEmailID());
 //
 //
 //        for (Bill i : customer.getCustomerBills()){

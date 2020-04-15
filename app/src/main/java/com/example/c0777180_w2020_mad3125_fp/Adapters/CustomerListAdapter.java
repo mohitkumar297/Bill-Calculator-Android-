@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
+import com.example.c0777180_w2020_mad3125_fp.Util.DataRepo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.CustomerListViewHolder> {
 
-    ArrayList<Customer> customerArrayList;
+    private ArrayList<Customer> customerArrayList;
 
     public CustomerListAdapter(ArrayList<Customer> customerArrayList) {
         this.customerArrayList = customerArrayList;
@@ -33,10 +34,9 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull CustomerListViewHolder holder, int position) {
-        Customer customer = this.customerArrayList.get(position);
+
+        Customer customer = customerArrayList.get(position);
         holder.customerName.setText(customer.getFirstName()+" "+customer.getLastName());
-
-
     }
 
     @Override

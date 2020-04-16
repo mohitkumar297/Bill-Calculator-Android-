@@ -41,6 +41,7 @@ public class CustomerListActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                Intent i = new Intent(CustomerListActivity.this,AddNewCustomerActivity.class);
+               startActivity(i);
            }
        });
 

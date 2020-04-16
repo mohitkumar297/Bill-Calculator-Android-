@@ -66,7 +66,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.item1:
-                
+
             case R.id.item2:
                 Toast.makeText(this,"LOGGED OUT",Toast.LENGTH_SHORT).show();
         }

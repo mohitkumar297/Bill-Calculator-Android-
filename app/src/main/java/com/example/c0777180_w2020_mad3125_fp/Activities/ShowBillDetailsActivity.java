@@ -2,6 +2,8 @@ package com.example.c0777180_w2020_mad3125_fp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,6 +50,14 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 //    private ArrayList<Bill> internetBill;
 //    private ArrayList<Bill> hydroBill;
 //    private ArrayList<Bill> mobileBill;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_items,menu);
+
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

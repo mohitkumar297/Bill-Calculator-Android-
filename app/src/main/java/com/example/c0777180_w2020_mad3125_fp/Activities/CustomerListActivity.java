@@ -51,8 +51,6 @@ public class CustomerListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(customerListAdapter);
 
-
-
     }
 
     public void populateCustomers() {

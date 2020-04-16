@@ -66,11 +66,16 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.item1:
-
+                Intent in = new Intent(ShowBillDetailsActivity.this,AddNewBillActivity.class);
+                startActivity(in);
+                return true;
             case R.id.item2:
                 Toast.makeText(this,"LOGGED OUT",Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+
     }
 
     @Override

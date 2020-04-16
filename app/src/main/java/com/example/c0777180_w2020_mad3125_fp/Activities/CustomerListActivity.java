@@ -50,6 +50,9 @@ public class CustomerListActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(customerListAdapter);
+
+
+
     }
 
     public void populateCustomers() {

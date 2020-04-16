@@ -23,7 +23,11 @@ public class DataRepo {
     }
 
     public void loadData(){
-        Hydro H1 = new Hydro("HYD001","12/05/2020", Bill.BillType.Hydro,203.4,"Liquid flow",345);
+        Hydro H1 = new Hydro("HYD001","12/02/2020", Bill.BillType.Hydro,203.4,"Liquid flow",345);
+
+        Hydro H2 = new Hydro("HYD002","31/03/2020", Bill.BillType.Hydro,53.1,"H2O World",100);
+
+        Hydro H3 = new Hydro("HYD003","12/05/2020", Bill.BillType.Hydro,77.2,"Liquid flow",127);
 
         Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","10/05/1995","Male");
 
@@ -34,9 +38,8 @@ public class DataRepo {
         Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","10/05/1995","Male");
 
         C1.addBilltoCustomer(H1);
-
-//        C2.addBilltoCustomer("HYD001",H1);
-//        C3.addBilltoCustomer("HYD001",H1);
+        C2.addBilltoCustomer(H2);
+        C3.addBilltoCustomer(H3);
 //        C4.addBilltoCustomer("HYD001",H1);
 
         customerArrayList.add(C1);

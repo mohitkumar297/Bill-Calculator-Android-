@@ -1,6 +1,8 @@
 package com.example.c0777180_w2020_mad3125_fp.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,7 +37,12 @@ public class CustomerListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_list);
         ButterKnife.inject(this);
 
-      //  customerAdd.se
+       customerAdd.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent i = new Intent(CustomerListActivity.this,AddNewCustomerActivity.class);
+           }
+       });
 
         populateCustomers();
         customerListAdapter = new CustomerListAdapter(customerArrayList);

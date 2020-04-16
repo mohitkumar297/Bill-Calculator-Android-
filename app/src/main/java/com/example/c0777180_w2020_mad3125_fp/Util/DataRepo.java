@@ -49,11 +49,14 @@ public class DataRepo {
 
         C1.addBilltoCustomer(H1);
         C1.addBilltoCustomer(M1);
-        C2.addBilltoCustomer(H2);
-        C3.addBilltoCustomer(H3);
-        C4.addBilltoCustomer(M2);
 
-//        C4.addBilltoCustomer("HYD001",H1);
+        C2.addBilltoCustomer(H2);
+        C2.addBilltoCustomer(I1);
+
+        C3.addBilltoCustomer(H3);
+        C3.addBilltoCustomer(I2);
+
+        C4.addBilltoCustomer(M2);
 
         customerArrayList.add(C1);
         customerArrayList.add(C2);

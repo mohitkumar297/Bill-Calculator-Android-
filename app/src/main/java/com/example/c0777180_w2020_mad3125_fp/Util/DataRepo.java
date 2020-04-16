@@ -34,20 +34,20 @@ public class DataRepo {
 
         Mobile M2 = new Mobile("MOB102","10/04/2020", Bill.BillType.Mobile,54,"8054626109",41,452,"Bell","All Time ");
 
-        Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","10/05/1995","Male");
+        Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","24/08/1998","Male");
 
-        Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","10/05/1995","Male");
+        Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","21/01/2000","  Female");
 
-        Customer C3 = new Customer("C003","Jordan","Henderson","jorhen@gmail.com","10/05/1995","Male");
+        Customer C3 = new Customer("C003","Jordan","Henderson","jorhen@gmail.com","08/04/1999","Male");
 
-        Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","10/05/1995","Male");
+        Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","13/08/1981","Male");
 
         C1.addBilltoCustomer(H1);
         C1.addBilltoCustomer(M1);
         C2.addBilltoCustomer(H2);
         C3.addBilltoCustomer(H3);
         C4.addBilltoCustomer(M2);
-        
+
 //        C4.addBilltoCustomer("HYD001",H1);
 
         customerArrayList.add(C1);

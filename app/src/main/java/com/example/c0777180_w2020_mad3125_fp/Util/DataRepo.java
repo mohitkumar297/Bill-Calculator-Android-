@@ -3,6 +3,7 @@ package com.example.c0777180_w2020_mad3125_fp.Util;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.Models.Hydro;
+import com.example.c0777180_w2020_mad3125_fp.Models.Internet;
 import com.example.c0777180_w2020_mad3125_fp.Models.Mobile;
 
 import java.util.ArrayList;
@@ -33,6 +34,10 @@ public class DataRepo {
         Mobile M1 = new Mobile("MOB101","19/04/2020", Bill.BillType.Mobile,98,"6475406638",36,312,"Rogers","Mega Deal");
 
         Mobile M2 = new Mobile("MOB102","10/04/2020", Bill.BillType.Mobile,54,"8054626109",41,452,"Bell","All Time ");
+
+        Internet I1 = new Internet("INT111","04/03/2020",Bill.BillType.Internet,57.12,"Freedom Mobile", 14);
+
+        Internet I2 = new Internet("INT112","11/09/2019",Bill.BillType.Internet,36.89,"Fido", 4);
 
         Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","24/08/1998","Male");
 

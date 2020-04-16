@@ -1,8 +1,6 @@
 package com.example.c0777180_w2020_mad3125_fp.Activities;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +10,7 @@ import com.example.c0777180_w2020_mad3125_fp.Adapters.CustomerListAdapter;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
 import com.example.c0777180_w2020_mad3125_fp.Util.DataRepo;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -23,6 +22,8 @@ public class CustomerListActivity extends AppCompatActivity {
 
     @InjectView(R.id.recyclerView)
     RecyclerView recyclerView;
+    @InjectView(R.id.customerAdd)
+    FloatingActionButton customerAdd;
 
     private CustomerListAdapter customerListAdapter;
     private ArrayList<Customer> customerArrayList;
@@ -34,14 +35,16 @@ public class CustomerListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_list);
         ButterKnife.inject(this);
 
+      //  customerAdd.se
+
         populateCustomers();
         customerListAdapter = new CustomerListAdapter(customerArrayList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(customerListAdapter);
     }
 
-    public void populateCustomers(){
+    public void populateCustomers() {
         customerArrayList = new ArrayList<>();
         customerArrayList = DataRepo.getInstance().getAllCustomers();
     }

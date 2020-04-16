@@ -12,7 +12,6 @@
         android:id="@+id/customerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="Customer Name"
         android:textSize="18dp"
         android:textColor="#000"

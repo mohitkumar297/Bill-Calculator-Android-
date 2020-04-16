@@ -27,22 +27,22 @@ public class DataRepo {
 
         Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","10/05/1995","Male");
 
-//        Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","10/05/1995","Male");
-//
-//        Customer C3 = new Customer("C003","Jordan","Henderson","jorhen@gmail.com","10/05/1995","Male");
-//
-//        Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","10/05/1995","Male");
+        Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","10/05/1995","Male");
+
+        Customer C3 = new Customer("C003","Jordan","Henderson","jorhen@gmail.com","10/05/1995","Male");
+
+        Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","10/05/1995","Male");
 
         C1.addBilltoCustomer(H1);
-       // C1.customerBills.add(H1);
+
 //        C2.addBilltoCustomer("HYD001",H1);
 //        C3.addBilltoCustomer("HYD001",H1);
 //        C4.addBilltoCustomer("HYD001",H1);
 
         customerArrayList.add(C1);
-//        customerArrayList.add(C2);
-//        customerArrayList.add(C3);
-//        customerArrayList.add(C4);
+        customerArrayList.add(C2);
+        customerArrayList.add(C3);
+        customerArrayList.add(C4);
 
 
 

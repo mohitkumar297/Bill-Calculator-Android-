@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.c0777180_w2020_mad3125_fp.Adapters.BillListAdapter;
+import com.example.c0777180_w2020_mad3125_fp.Adapters.CustomerListAdapter;
+import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
 
@@ -30,8 +34,13 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     TextView customerDateOfBirth;
     @InjectView(R.id.customerTotalBill)
     TextView customerTotalBill;
+
+
     @InjectView(R.id.rvBillList)
     RecyclerView rvBillList;
+    private BillListAdapter billListAdapter;
+    private ArrayList<Bill> billArrayList;
+
 
     private ArrayList bills;
 
@@ -45,7 +54,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_bill_details);
         ButterKnife.inject(this);
-
+        rvBillList.setHasFixedSize(true);
         Intent intent = getIntent();
         Customer customer = (Customer) intent.getParcelableExtra("CUSTOMERINFO");
 
@@ -57,7 +66,14 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         customerGender.setText(customer.getGender());
         customerEmail.setText(customer.getEmailID());
         customerTotalBill.setText("" + customer.calculateBill());
-//
+
+        billListAdapter = new BillListAdapter(bills);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        rvBillList.setLayoutManager(layoutManager);
+        rvBillList.setAdapter(billListAdapter);
+
+
+
 //
 //        for (Bill i : customer.getCustomerBills()){
 //            textView.setText(customer.getFirstName().toUpperCase() + "          " + customer.calculateBill() + " ");

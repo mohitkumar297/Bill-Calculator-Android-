@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.c0777180_w2020_mad3125_fp.BillViewAddPagerAdapter;
 import com.example.c0777180_w2020_mad3125_fp.HydroFragment;
@@ -19,17 +23,24 @@ public class AddNewBillActivity extends AppCompatActivity {
    // private AppBarLayout appBarLayout;
     private ViewPager viewPager;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_bill);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
+
+
+
         BillViewAddPagerAdapter adapter = new BillViewAddPagerAdapter(getSupportFragmentManager(),0);
         adapter.AddFragment(new MobileFragment(),"MOBILE ");
         adapter.AddFragment(new HydroFragment(),"HYDRO ");
         adapter.AddFragment(new InternetFragment(),"INTERNET ");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+
+
     }
 }

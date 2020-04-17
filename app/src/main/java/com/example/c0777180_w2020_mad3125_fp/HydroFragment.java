@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 public class HydroFragment extends Fragment {
 
     View view;
+    
 
     public HydroFragment() {
     }

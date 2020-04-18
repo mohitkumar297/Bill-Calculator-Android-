@@ -187,8 +187,9 @@
             android:textColor="#fff"
             android:id="@+id/dob"
             android:backgroundTint="#fff"
-            android:drawableStart="@drawable/ic_id"
+            android:drawableStart="@drawable/ic_date"
             android:drawablePadding="10dp"
+            android:focusable="false"
             />
 
     </com.google.android.material.textfield.TextInputLayout>

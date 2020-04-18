@@ -60,6 +60,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         public CustomerListViewHolder(@NonNull View itemView) {
             super(itemView);
             customerName = itemView.findViewById(R.id.customerName);
+            
         }
     }
 }

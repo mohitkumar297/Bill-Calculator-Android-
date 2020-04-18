@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#fff"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
        >
@@ -62,7 +62,7 @@
                 android:textColor="#fff"
                 android:id="@+id/fname"
                 android:backgroundTint="#fff"
-                android:drawableStart="@drawable/ic_id"
+                android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="10dp"
                 />
 
@@ -86,7 +86,7 @@
                 android:textColor="#fff"
                 android:id="@+id/lname"
                 android:backgroundTint="#fff"
-                android:drawableStart="@drawable/ic_id"
+                android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="10dp"
                 />
 
@@ -98,7 +98,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:weightSum="3"
         android:orientation="horizontal">
 
@@ -149,25 +149,62 @@
         </RadioGroup>
     </LinearLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#fff"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        >
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ENTER EMAIL ID"
+            android:textColor="#fff"
+            android:id="@+id/email"
+            android:backgroundTint="#fff"
+            android:drawableStart="@drawable/ic_email_black_24dp"
+            android:drawablePadding="10dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="EMAIL"
-        android:id="@+id/email"
-        android:layout_marginTop="20dp"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="DATEBIRTH"
-        android:id="@+id/dob"
-        android:layout_marginTop="20dp"/>
+        android:textColorHint="#fff"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DATE OF BIRTH"
+            android:textColor="#fff"
+            android:id="@+id/dob"
+            android:backgroundTint="#fff"
+            android:drawableStart="@drawable/ic_id"
+            android:drawablePadding="10dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="submit"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:id="@+id/submit"
-        android:layout_marginTop="20dp"/>
+        android:background="@drawable/btn_bg"
+        android:layout_marginTop="30dp"
+        />
 
 
 

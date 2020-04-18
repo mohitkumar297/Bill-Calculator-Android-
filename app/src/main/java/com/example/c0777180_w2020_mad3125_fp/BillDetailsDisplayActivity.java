@@ -10,5 +10,6 @@ public class BillDetailsDisplayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill_details_display);
+
     }
 }

@@ -47,10 +47,21 @@ public class CustomerListActivity extends AppCompatActivity {
 
         populateCustomers();
         customerListAdapter = new CustomerListAdapter(customerArrayList);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(customerListAdapter);
+        customerListAdapter.setOnItemClickListener(new CustomerListAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemDelete(int position) {
+                removeItem(position);
+            }
+        });
 
+    }
+    public void removeItem(int position){
+        customerArrayList.remove(position);
+        customerListAdapter.notifyItemRemoved(position);
     }
 
     public void populateCustomers() {

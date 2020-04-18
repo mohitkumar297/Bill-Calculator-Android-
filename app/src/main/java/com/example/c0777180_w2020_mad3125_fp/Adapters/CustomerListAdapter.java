@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,15 @@ import java.util.List;
 
 public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.CustomerListViewHolder> {
 
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void OnItemDelete(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
     private ArrayList<Customer> customerArrayList;
 
     public CustomerListAdapter(ArrayList<Customer> customerArrayList) {
@@ -30,7 +40,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @Override
     public CustomerListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.customer_list_items,parent,false);
-         CustomerListViewHolder customerListViewHolder = new CustomerListViewHolder(view);
+         CustomerListViewHolder customerListViewHolder = new CustomerListViewHolder(view,mListener);
         return customerListViewHolder;
     }
 
@@ -57,9 +67,24 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     public class CustomerListViewHolder extends RecyclerView.ViewHolder{
 
         TextView customerName;
-        public CustomerListViewHolder(@NonNull View itemView) {
+        ImageView customerDelete;
+        public CustomerListViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             customerName = itemView.findViewById(R.id.customerName);
+            customerDelete = itemView.findViewById(R.id.customerDelete);
+
+            customerDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.OnItemDelete(position);
+                        }
+                    }
+                }
+            });
+
         }
     }
 }

@@ -23,8 +23,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
     EditText fname;
     @InjectView(R.id.lname)
     EditText lname;
-    @InjectView(R.id.gender)
-    EditText gender;
+    
     @InjectView(R.id.email)
     EditText email;
     @InjectView(R.id.dob)

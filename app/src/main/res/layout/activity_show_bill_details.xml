@@ -7,6 +7,10 @@
     tools:context=".Activities.ShowBillDetailsActivity"
     android:orientation="vertical">
 
+<include
+    layout="@layout/toolbar"
+    android:id="@+id/toolbar"/>
+
     <TextView
         android:id="@+id/customerID"
         android:layout_width="match_parent"

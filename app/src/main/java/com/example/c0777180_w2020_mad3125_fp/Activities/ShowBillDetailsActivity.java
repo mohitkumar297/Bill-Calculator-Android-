@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,8 @@ import com.example.c0777180_w2020_mad3125_fp.HydroFragment;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -89,6 +92,9 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         ButterKnife.inject(this);
         rvBillList.setHasFixedSize(true);
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
         Customer customer = getCustomer();
 
 

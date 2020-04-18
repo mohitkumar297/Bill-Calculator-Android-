@@ -138,7 +138,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     public ArrayList<Bill> populateBills() {
         billArrayList = new ArrayList<>();
         billArrayList = getCustomer().getCustomerBills();
-        Log.i("monu"+ getCustomer().getCustomerBills().size()+":/<>monu","size is here populate");
+        Log.i(" MOHIT"+ getCustomer().getCustomerBills().size()+":/<>MOHIT","size is here populate");
         return billArrayList;
     }
 

@@ -52,22 +52,7 @@ public class HydroFragment extends Fragment {
         final Intent i = getActivity().getIntent();
         final Customer customer = i.getParcelableExtra("CurrentCustomer");
 
-        //Bundle bundle = getArguments();
 
-//        if(bundle == null){
-//            Log.i("qwertyu", "nonononononononoon");
-//        }
-//        else{
-//            Log.i("qwertyu", "yessssssssssss");
-//        }
-//            Customer customer = this.getArguments().getParcelable("Current");
-//
-//                if(customer == null){
-//            Log.i("qwertyu", "nonononononononoon");
-//        }
-//        else{
-//            Log.i("qwertyu", "yessssssssssss");
-//        }
         hydroSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,10 +61,8 @@ public class HydroFragment extends Fragment {
 
                 Hydro hydro = new Hydro(hydroID.getText().toString(), hydroBillDate.getText().toString(), Bill.BillType.Hydro, bill, hydroAgencyName.getText().toString(), units);
                 customer.addBilltoCustomer(hydro);
-//                Intent intent = new Intent(getActivity(), AddNewBillActivity.class);
-//                intent.putExtra("hy",hydro);
-//                startActivity(intent);
-                Log.i("monu"+ customer.getCustomerBills().size()+":/<>monu","size is here");
+
+                Log.i("MOHIT"+ customer.getCustomerBills().size()+":/<>MOHIT","size is here");
                 Intent intent = new Intent();
                 getActivity().setResult(getActivity().RESULT_OK,intent);
                 getActivity().finish();

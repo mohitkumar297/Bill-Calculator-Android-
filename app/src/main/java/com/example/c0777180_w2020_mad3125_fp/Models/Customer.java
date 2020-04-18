@@ -20,8 +20,8 @@ public class Customer implements IDisplay, Parcelable {
     private String dateOfBirth;
     private String gender;
     private Double totalBill;
-   public ArrayList<Bill> customerBills = new ArrayList<Bill>();
-   //private HashMap<String, Bill> customerBills = new HashMap<String, Bill>();
+    private ArrayList<Bill> customerBills = new ArrayList<Bill>();
+
 
     public Customer(String customerID, String firstName, String lastName, String emailID, String dateOfBirth, String gender) {
         this.customerID = customerID;
@@ -30,7 +30,6 @@ public class Customer implements IDisplay, Parcelable {
         this.emailID = emailID;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-       // this.customerBills =
         this.totalBill = calculateBill();
     }
 
@@ -44,7 +43,6 @@ public class Customer implements IDisplay, Parcelable {
         dateOfBirth = in.readString();
         gender = in.readString();
         totalBill = in.readDouble();
-        //customerBills = in.readHashMap(Bill.class.getClassLoader());
         customerBills = in.readArrayList(Bill.class.getClassLoader());
     }
 
@@ -110,24 +108,6 @@ public class Customer implements IDisplay, Parcelable {
 
 
 
-//    public void addBilltoCustomer(String billId, Bill bill)
-//    {
-//        this.customerBills.put(billId, bill);
-//    }
-
-    public void addBilltoCustomer(Bill bill)
-    {
-        this.customerBills.add(bill);
-    }
-
-//    public HashMap<String, Bill> getCustomerBills() {
-//        return customerBills;
-//    }
-//
-//    public void setCustomerBills(HashMap<String, Bill> customerBills) {
-//        this.customerBills = customerBills;
-//    }
-
     public ArrayList<Bill> getCustomerBills() {
         return customerBills;
     }
@@ -136,14 +116,10 @@ public class Customer implements IDisplay, Parcelable {
         this.customerBills = customerBills;
     }
 
-
-//    public ArrayList<Bill> getBills()
-//    {
-//        Collection<Bill> v = customerBills.values();
-//        ArrayList<Bill> allBills = new ArrayList<>(v);
-//        return allBills;
-//    }
-
+    public void addBilltoCustomer(Bill bill)
+    {
+        this.customerBills.add(bill);
+    }
 
     public Double getTotalBill() {
         return totalBill;
@@ -182,7 +158,6 @@ public class Customer implements IDisplay, Parcelable {
         dest.writeString(dateOfBirth);
         dest.writeString(gender);
         dest.writeDouble(totalBill);
-        //dest.writeMap(customerBills);
         dest.writeList(customerBills);
     }
 }

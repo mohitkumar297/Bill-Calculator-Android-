@@ -1,16 +1,24 @@
 package com.example.c0777180_w2020_mad3125_fp;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.c0777180_w2020_mad3125_fp.Activities.AddNewBillActivity;
+import com.example.c0777180_w2020_mad3125_fp.Activities.ShowBillDetailsActivity;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
+import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.Models.Hydro;
 
 import butterknife.ButterKnife;
@@ -29,6 +37,8 @@ public class HydroFragment extends Fragment {
     EditText hydroAgencyName;
     @InjectView(R.id.hydroUnitsConsumed)
     EditText hydroUnitsConsumed;
+    @InjectView(R.id.hydroSave)
+    Button hydroSave;
 
 
     public HydroFragment() {
@@ -39,10 +49,43 @@ public class HydroFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.hydro_fragment, container, false);
         ButterKnife.inject(this, view);
+        final Intent i = getActivity().getIntent();
+        final Customer customer = i.getParcelableExtra("CurrentCustomer");
 
-        Double bill = Double.parseDouble(hydroBillAmount.getText().toString());
-        Integer units = Integer.parseInt(hydroUnitsConsumed.getText().toString());
-        Hydro hydro = new Hydro(hydroID.getText().toString(),hydroBillDate.getText().toString(), Bill.BillType.Hydro,bill,hydroAgencyName.getText().toString(),units);
+        //Bundle bundle = getArguments();
+
+//        if(bundle == null){
+//            Log.i("qwertyu", "nonononononononoon");
+//        }
+//        else{
+//            Log.i("qwertyu", "yessssssssssss");
+//        }
+//            Customer customer = this.getArguments().getParcelable("Current");
+//
+//                if(customer == null){
+//            Log.i("qwertyu", "nonononononononoon");
+//        }
+//        else{
+//            Log.i("qwertyu", "yessssssssssss");
+//        }
+        hydroSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double bill = Double.parseDouble(hydroBillAmount.getText().toString());
+                Integer units = Integer.parseInt(hydroUnitsConsumed.getText().toString());
+
+                Hydro hydro = new Hydro(hydroID.getText().toString(), hydroBillDate.getText().toString(), Bill.BillType.Hydro, bill, hydroAgencyName.getText().toString(), units);
+                customer.addBilltoCustomer(hydro);
+//                Intent intent = new Intent(getActivity(), AddNewBillActivity.class);
+//                intent.putExtra("hy",hydro);
+//                startActivity(intent);
+                Log.i("monu"+ customer.getCustomerBills().size()+":/<>monu","size is here");
+                Intent intent = new Intent();
+                getActivity().setResult(getActivity().RESULT_OK,intent);
+                getActivity().finish();
+            }
+        });
+
         return view;
     }
 }

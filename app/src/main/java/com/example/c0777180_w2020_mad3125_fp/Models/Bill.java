@@ -18,7 +18,7 @@ public abstract class Bill implements IDisplay , Serializable {
         private String billID;
         private String billDate;
         private BillType billType;
-        public double billAmount=1.0;
+        public double billAmount;
 
     public Bill(String billID, String billDate, BillType billType, double billAmount) {
         this.billID = billID;

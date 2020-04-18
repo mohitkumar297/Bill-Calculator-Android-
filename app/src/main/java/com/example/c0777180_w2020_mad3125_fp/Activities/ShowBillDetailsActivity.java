@@ -114,10 +114,8 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 //    @Override
 //    public void onResume() {
 //        super.onResume();
-//       // billArrayList.clear();
-//        billArrayList.addAll(populateBills());
-//        billArrayList = populateBills(); //reload the items from database
-//        billListAdapter.notifyDataSetChanged();
+//
+//        billListAdapter.n;
 //    }
 
     public Customer getCustomer(){

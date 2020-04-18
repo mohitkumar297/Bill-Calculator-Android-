@@ -5,44 +5,120 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.AddNewCustomerActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/grad_bg">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ID"
-        android:id="@+id/id"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="First Name"
-        android:id="@+id/fname"/>
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="ENTER CUSTOMER DETAILS"
+    android:textSize="24dp"
+    android:textStyle="bold"
+    android:textColor="#fff"
+        android:textAlignment="center"
+    android:layout_marginTop="20dp"/>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="lname Name"
-        android:id="@+id/lname"/>
+        android:textColorHint="#fff"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+       >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ENTER USER ID"
+            android:textColor="#fff"
+            android:id="@+id/id"
+            android:backgroundTint="#fff"
+            android:drawableStart="@drawable/ic_id"
+            android:drawablePadding="10dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="FIRST NAME"
+                android:textColor="#fff"
+                android:id="@+id/fname"
+                android:backgroundTint="#fff"
+                android:drawableStart="@drawable/ic_id"
+                android:drawablePadding="10dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="LAST NAME"
+                android:textColor="#fff"
+                android:id="@+id/lname"
+                android:backgroundTint="#fff"
+                android:drawableStart="@drawable/ic_id"
+                android:drawablePadding="10dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Gender"
-        android:id="@+id/gender"/>
+        android:id="@+id/gender"
+        android:layout_marginTop="20dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="EMAIL"
-        android:id="@+id/email"/>
+        android:id="@+id/email"
+        android:layout_marginTop="20dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="DATEBIRTH"
-        android:id="@+id/dob"/>
+        android:id="@+id/dob"
+        android:layout_marginTop="20dp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="submit"
-        android:id="@+id/submit"/>
+        android:id="@+id/submit"
+        android:layout_marginTop="20dp"/>
 
 
 

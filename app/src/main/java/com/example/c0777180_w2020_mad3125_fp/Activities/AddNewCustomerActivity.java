@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
@@ -147,7 +148,8 @@ public class AddNewCustomerActivity extends AppCompatActivity {
     };
 
     public void maleClick(View view) {
-        radioMale.setTextColor(Color.WHITE);
+
+        radioMale.setTextColor(R.color.orange);
         radioFemale.setTextColor(Color.BLACK);
         radioOther.setTextColor(Color.BLACK);
     }

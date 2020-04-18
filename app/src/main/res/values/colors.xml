@@ -8,5 +8,6 @@
     <color name="transparent">#00000000</color>
     <color name="gradstart">#19aa8b</color>
     <color name="gradend">#23a7db</color>
+    <color name="orange">#FD9D5C</color>
 
 </resources>

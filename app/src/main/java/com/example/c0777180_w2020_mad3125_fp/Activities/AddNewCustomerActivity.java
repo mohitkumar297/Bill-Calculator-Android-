@@ -1,6 +1,7 @@
 package com.example.c0777180_w2020_mad3125_fp.Activities;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
@@ -26,6 +28,7 @@ import butterknife.InjectView;
 
 public class AddNewCustomerActivity extends AppCompatActivity {
 
+    AlertDialog.Builder builder;
 
     @InjectView(R.id.submit)
     Button submit;
@@ -61,6 +64,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_customer);
         ButterKnife.inject(this);
+        builder = new AlertDialog.Builder(this);
 
         radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -91,14 +95,39 @@ public class AddNewCustomerActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (id.getText().toString().isEmpty() || fname.getText().toString().isEmpty() || lname.getText().toString().isEmpty() || checkedBox.isEmpty() || email.getText().toString().isEmpty() || dob.getText().toString().isEmpty()){
+                    builder.setMessage("INCOMPLETE FORM")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+//                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    //  Action for 'NO' Button
+//                                    dialog.cancel();
+//
+//                                }
+//                            });
+
+                    //Creating dialog box
+                    AlertDialog alert = builder.create();
+                    //Setting the title manually
+                    alert.setTitle("ERROR");
+                    alert.show();
+                    alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                }
+                else{
                 Customer customer = new Customer(id.getText().toString(), fname.getText().toString(), lname.getText().toString(), checkedBox, email.getText().toString(), dob.getText().toString());
                 DataRepo.getInstance().getAllCustomers().add(customer);
-                // Intent mIntent = new Intent(AddNewCustomerActivity.this, CustomerListActivity.class);
+
+
                 Intent mIntent = new Intent();
-                // mIntent.putExtra("CustomerBills", customer);
                 setResult(RESULT_OK, mIntent);
                 finish();
-            }
+            }}
         });
     }
 

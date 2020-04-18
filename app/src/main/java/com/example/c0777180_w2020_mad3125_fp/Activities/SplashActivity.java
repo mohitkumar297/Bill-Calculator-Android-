@@ -19,9 +19,9 @@ public class SplashActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity((LoginActivity.class))
                 .withSplashTimeOut(1000)
-                .withBackgroundColor(Color.parseColor("#1a1b29"))
-                .withAfterLogoText("Mohit Kumar\n\n  C0777180");
-                //.withLogo(R.drawable.ddollar);
+                .withBackgroundColor(Color.parseColor("#000000"))
+                .withAfterLogoText("Mohit Kumar\n\n  C0777180")
+                .withLogo(R.drawable.splash_icon);
 
         config.getAfterLogoTextView().setTextColor(Color.WHITE);
         config.getAfterLogoTextView().setTextSize(20);
@@ -31,3 +31,4 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 }
+//1a1b29

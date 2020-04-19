@@ -120,14 +120,16 @@ public class AddNewCustomerActivity extends AppCompatActivity {
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
                 }
+
                 else{
-                Customer customer = new Customer(id.getText().toString(), fname.getText().toString(), lname.getText().toString(), checkedBox, email.getText().toString(), dob.getText().toString());
+                Customer customer = new Customer(id.getText().toString(), fname.getText().toString(), lname.getText().toString(), email.getText().toString(), dob.getText().toString(), checkedBox);
                 DataRepo.getInstance().getAllCustomers().add(customer);
 
 
                 Intent mIntent = new Intent();
                 setResult(RESULT_OK, mIntent);
                 finish();
+
             }}
         });
     }
@@ -149,7 +151,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
 
     public void maleClick(View view) {
 
-        radioMale.setTextColor(R.color.orange);
+        radioMale.setTextColor(Color.WHITE);
         radioFemale.setTextColor(Color.BLACK);
         radioOther.setTextColor(Color.BLACK);
     }
@@ -165,4 +167,5 @@ public class AddNewCustomerActivity extends AppCompatActivity {
         radioFemale.setTextColor(Color.BLACK);
         radioOther.setTextColor(Color.WHITE);
     }
+
 }

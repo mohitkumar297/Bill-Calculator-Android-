@@ -59,6 +59,13 @@ public class CustomerListActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        customerListAdapter.notifyDataSetChanged();
+    }
+
     public void removeItem(int position){
         customerArrayList.remove(position);
         customerListAdapter.notifyItemRemoved(position);

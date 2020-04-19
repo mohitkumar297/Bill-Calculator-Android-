@@ -117,12 +117,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 //            //textView.setText(i.getBillID()+"   "+i.billAmount+"   "+i.getBillType()+""+customer.getLastName());
 //        }
     }
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//
-//        billListAdapter.n;
-//    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        billListAdapter.notifyDataSetChanged();
+    }
 
     public Customer getCustomer(){
         Intent intent = getIntent();

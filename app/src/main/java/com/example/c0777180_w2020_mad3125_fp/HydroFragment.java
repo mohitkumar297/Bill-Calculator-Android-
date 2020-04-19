@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.c0777180_w2020_mad3125_fp.Activities.AddNewBillActivity;
+import com.example.c0777180_w2020_mad3125_fp.Activities.AddNewCustomerActivity;
 import com.example.c0777180_w2020_mad3125_fp.Activities.ShowBillDetailsActivity;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
@@ -63,8 +64,12 @@ public class HydroFragment extends Fragment {
                 customer.addBilltoCustomer(hydro);
 
                 Log.i("MOHIT"+ customer.getCustomerBills().size()+":/<>MOHIT","size is here");
-                Intent intent = new Intent();
-                getActivity().setResult(getActivity().RESULT_OK,intent);
+                //Intent intent = new Intent();
+//                getActivity().setResult(getActivity().RESULT_OK,intent);
+//                getActivity().finish();
+                Intent intent = new Intent(getActivity(),ShowBillDetailsActivity.class);
+                intent.putExtra("CUSTOMERINFO",customer);
+                startActivity(intent);
                 getActivity().finish();
             }
         });

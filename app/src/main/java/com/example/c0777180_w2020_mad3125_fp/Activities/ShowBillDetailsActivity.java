@@ -147,7 +147,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 //    @Override
 //    protected void onResume() {
 //        super.onResume();
-//        billListAdapter.notifyDataSetChanged();
+//        billArrayList.clear();
+//        Intent mintent = getIntent();
+//        Customer customer1 = (Customer) mintent.getParcelableExtra("CUSTOMEROBJECT");
+//        billArrayList.addAll(customer1.getCustomerBills());
 //    }
 
 //    public void updateReceiptsList(ArrayList<Bill> billArrayList) {
@@ -178,5 +181,4 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         Log.i(" MOHIT" + getCustomer().getCustomerBills().size() + ":/<>MOHIT", "size is here populate");
         return billArrayList;
     }
-
 }

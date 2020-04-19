@@ -81,8 +81,8 @@ public class AddNewBillActivity extends AppCompatActivity {
        // Intent i = getIntent();
         //Hydro hydro = i.getParcelableExtra("hy");
 
-          Intent mIntent = getIntent();
-          Customer customer = (Customer) mIntent.getParcelableExtra("CurrentCustomer");
+//          Intent mIntent = getIntent();
+//          Customer customer = (Customer) mIntent.getParcelableExtra("CurrentCustomer");
           //customer.addBilltoCustomer(hydro);
 
     }

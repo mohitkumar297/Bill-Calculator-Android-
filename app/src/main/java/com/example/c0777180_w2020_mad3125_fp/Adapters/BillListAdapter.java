@@ -38,7 +38,15 @@ public class BillListAdapter extends RecyclerView.Adapter<BillListAdapter.BillLi
     @Override
     public void onBindViewHolder(@NonNull final BillListViewHolder holder, int position) {
         final Bill bill = billArrayList.get(position);
-        holder.imgBill.setImageResource(R.drawable.ic_launcher_background);
+        if (bill.getBillID().contains("MOB")){
+            holder.imgBill.setImageResource(R.drawable.icons_phone);
+        }
+        else if (bill.getBillID().contains("INT")){
+            holder.imgBill.setImageResource(R.drawable.icons8internet);
+        }
+        else {
+            holder.imgBill.setImageResource(R.drawable.icons8water);
+        }
         holder.txtDetail.setText(bill.getBillID()+"\n"+bill.getBillAmount()+"\n"+bill.getBillType());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +69,11 @@ public class BillListAdapter extends RecyclerView.Adapter<BillListAdapter.BillLi
 
         ImageView imgBill;
         TextView txtDetail;
-        TextView txt2;
 
         public BillListViewHolder(@NonNull View itemView) {
             super(itemView);
             imgBill = itemView.findViewById(R.id.img);
             txtDetail = itemView.findViewById(R.id.tv1);
-            txt2 = itemView.findViewById(R.id.tv2);
         }
     }
     public  void onActivityResult(int requestCode, int resultCode) {

@@ -47,7 +47,7 @@ public class BillListAdapter extends RecyclerView.Adapter<BillListAdapter.BillLi
         else {
             holder.imgBill.setImageResource(R.drawable.icons8water);
         }
-        holder.txtDetail.setText(bill.getBillID()+"\n"+bill.getBillAmount()+"\n"+bill.getBillType());
+        holder.txtDetail.setText("Bill Type : "+bill.getBillType()+"\n"+"Total Amount : "+bill.getBillAmount());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

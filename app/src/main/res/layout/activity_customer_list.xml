@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         />
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,6 +29,21 @@
         android:elevation="6dp"
         android:src="@drawable/ic_add_black_24dp"
         android:id="@+id/customerAdd"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/logoutFloat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/customerAdd"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.911"
+        android:src="@drawable/ic_exit"
+        android:layout_margin="5dp"
+        android:background="@color/transparent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

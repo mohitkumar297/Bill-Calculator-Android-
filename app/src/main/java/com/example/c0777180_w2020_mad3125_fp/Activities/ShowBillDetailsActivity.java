@@ -1,6 +1,8 @@
 package com.example.c0777180_w2020_mad3125_fp.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -8,23 +10,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.c0777180_w2020_mad3125_fp.Adapters.BillListAdapter;
-import com.example.c0777180_w2020_mad3125_fp.Adapters.CustomerListAdapter;
-import com.example.c0777180_w2020_mad3125_fp.HydroFragment;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -46,10 +44,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     TextView customerDateOfBirth;
     @InjectView(R.id.customerTotalBill)
     TextView customerTotalBill;
-
+    AlertDialog.Builder builder;
 
     @InjectView(R.id.rvBillList)
     RecyclerView rvBillList;
+    @InjectView(R.id.swipeRefresh)
+    SwipeRefreshLayout swipeRefresh;
     private BillListAdapter billListAdapter;
     private ArrayList<Bill> billArrayList;
 
@@ -62,22 +62,44 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_items,menu);
+        inflater.inflate(R.menu.menu_items, menu);
 
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.item1:
-                Intent in = new Intent(ShowBillDetailsActivity.this,AddNewBillActivity.class);
+                Intent in = new Intent(ShowBillDetailsActivity.this, AddNewBillActivity.class);
                 Customer customer = getCustomer();
-                in.putExtra("CurrentCustomer",customer);
-                startActivityForResult(in,1);
+                in.putExtra("CurrentCustomer", customer);
+                startActivityForResult(in, 1);
                 return true;
             case R.id.item2:
-                Toast.makeText(this,"LOGGED OUT",Toast.LENGTH_SHORT).show();
+
+                builder.setMessage("Are you sure you want to End Session?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent mIntent = new Intent(ShowBillDetailsActivity.this,LoginActivity.class);
+                                startActivity(mIntent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //  Action for 'NO' Button
+                                dialog.cancel();
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder.create();
+                //Setting the title manually
+                alert.setTitle("LOGOUT");
+                alert.show();
+                alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                alert.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -91,10 +113,11 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_bill_details);
         ButterKnife.inject(this);
         rvBillList.setHasFixedSize(true);
-
-        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        builder = new AlertDialog.Builder(this);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
+
         Customer customer = getCustomer();
 
 
@@ -107,24 +130,34 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         customerTotalBill.setText("" + customer.calculateBill());
 
         billListAdapter = new BillListAdapter(billArrayList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvBillList.setLayoutManager(layoutManager);
         rvBillList.setAdapter(billListAdapter);
 
-//
-//        for (Bill i : customer.getCustomerBills()){
-//            textView.setText(customer.getFirstName().toUpperCase() + "          " + customer.calculateBill() + " ");
-//            //textView.setText(i.getBillID()+"   "+i.billAmount+"   "+i.getBillType()+""+customer.getLastName());
-//        }
+//        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                billArrayList.addAll(billArrayList);
+//                billListAdapter.notifyDataSetChanged();
+//                swipeRefresh.setRefreshing(false);
+//            }
+//        });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        billListAdapter.notifyDataSetChanged();
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        billListAdapter.notifyDataSetChanged();
+//    }
 
-    public Customer getCustomer(){
+//    public void updateReceiptsList(ArrayList<Bill> billArrayList) {
+//        this.billArrayList = billArrayList;
+//        billArrayList.clear();
+//        billArrayList.addAll(this.billArrayList);
+//        this.notifyDataSetChanged();
+//    }
+
+    public Customer getCustomer() {
         Intent intent = getIntent();
         Customer customer = (Customer) intent.getParcelableExtra("CUSTOMERINFO");
         return customer;
@@ -142,7 +175,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     public ArrayList<Bill> populateBills() {
         billArrayList = new ArrayList<>();
         billArrayList = getCustomer().getCustomerBills();
-        Log.i(" MOHIT"+ getCustomer().getCustomerBills().size()+":/<>MOHIT","size is here populate");
+        Log.i(" MOHIT" + getCustomer().getCustomerBills().size() + ":/<>MOHIT", "size is here populate");
         return billArrayList;
     }
 

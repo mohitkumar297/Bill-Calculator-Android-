@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     Intent intent = new Intent(LoginActivity.this, CustomerListActivity.class);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid User Id or Password", Toast.LENGTH_SHORT).show();
                 }

@@ -1,9 +1,12 @@
 package com.example.c0777180_w2020_mad3125_fp.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,24 +29,59 @@ public class CustomerListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     @InjectView(R.id.customerAdd)
     FloatingActionButton customerAdd;
+    @InjectView(R.id.logoutFloat)
+    FloatingActionButton logoutFloat;
 
     private CustomerListAdapter customerListAdapter;
     private ArrayList<Customer> customerArrayList;
-
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_list);
         ButterKnife.inject(this);
+        builder = new AlertDialog.Builder(this);
+        customerAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CustomerListActivity.this, AddNewCustomerActivity.class);
+                startActivity(i);
+            }
+        });
 
-       customerAdd.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent i = new Intent(CustomerListActivity.this,AddNewCustomerActivity.class);
-               startActivity(i);
-           }
-       });
+        logoutFloat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                builder.setMessage("Are you sure you want to End Session?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent mIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
+                                startActivity(mIntent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //  Action for 'NO' Button
+                                dialog.cancel();
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder.create();
+                //Setting the title manually
+                alert.setTitle("LOGOUT");
+                alert.show();
+                alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                alert.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+//                Intent mIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
+//                startActivity(mIntent);
+//                finish();
+
+            }
+        });
 
         populateCustomers();
         customerListAdapter = new CustomerListAdapter(customerArrayList);
@@ -66,7 +104,7 @@ public class CustomerListActivity extends AppCompatActivity {
         customerListAdapter.notifyDataSetChanged();
     }
 
-    public void removeItem(int position){
+    public void removeItem(int position) {
         customerArrayList.remove(position);
         customerListAdapter.notifyItemRemoved(position);
     }

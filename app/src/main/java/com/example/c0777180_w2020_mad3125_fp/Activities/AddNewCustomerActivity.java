@@ -105,13 +105,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
                                     dialog.cancel();
                                 }
                             });
-//                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int id) {
-//                                    //  Action for 'NO' Button
-//                                    dialog.cancel();
 //
-//                                }
-//                            });
 
                     //Creating dialog box
                     AlertDialog alert = builder.create();

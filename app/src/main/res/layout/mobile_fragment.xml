@@ -46,6 +46,7 @@
             android:textColor="#FFF"
             android:drawableStart="@drawable/ic_date_range_bill"
             android:drawablePadding="10dp"
+            android:focusable="false"
             />
 
     </com.google.android.material.textfield.TextInputLayout>

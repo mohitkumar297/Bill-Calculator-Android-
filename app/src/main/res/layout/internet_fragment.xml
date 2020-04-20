@@ -15,6 +15,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="70dp"
+        android:id="@+id/inputID"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -47,6 +48,7 @@
             android:textColor="#FFF"
             android:drawableStart="@drawable/ic_date_range_bill"
             android:drawablePadding="10dp"
+            android:focusable="false"
             />
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.c0777180_w2020_mad3125_fp.Activities.ShowBillDetailsActivity;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.Models.Mobile;
@@ -60,6 +59,8 @@ public class MobileFragment extends Fragment {
     AlertDialog.Builder builder;
     @InjectView(R.id.mobileinputLayout)
     TextInputLayout mobileinputLayout;
+    @InjectView(R.id.mobilelength)
+    TextInputLayout mobilelength;
 
     public MobileFragment() {
     }
@@ -100,20 +101,21 @@ public class MobileFragment extends Fragment {
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
-                }
-                else if (!mobileID.getText().toString().contains("MOB")){
+                } else if (!mobileID.getText().toString().contains("MOB")) {
                     mobileinputLayout.setError("MUST START WITH MOB");
+                } else if (mobileMobile.getText().toString().length() != 10){
+                    mobilelength.setError("Invalid Mobile Number");
                 }
-                else {
+                else{
                     Double bill = Double.parseDouble(mobileBillAmount.getText().toString());
                     Integer internetused = Integer.parseInt(mobileInternet.getText().toString());
                     Integer minutes = Integer.parseInt(mobileMinutes.getText().toString());
-                    Mobile mobile = new Mobile(id,date, Bill.BillType.Mobile,bill,mob,internetused,minutes,manufacturer,plan);
+                    Mobile mobile = new Mobile(id, date, Bill.BillType.Mobile, bill, mob, internetused, minutes, manufacturer, plan);
                     customer.addBilltoCustomer(mobile);
 
                     Intent intent = new Intent();
                     intent.putExtra("CUSTOMERINFO", customer);
-                    getActivity().setResult(Activity.RESULT_OK,intent);
+                    getActivity().setResult(Activity.RESULT_OK, intent);
                     getActivity().finish();
                 }
 

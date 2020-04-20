@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@drawable/bg_form">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_form">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -90,6 +97,11 @@
             android:layout_marginRight="10dp"
             android:textColorHint="@color/form_details_medium"
             android:layout_marginTop="10dp"
+            android:id="@+id/mobilelength"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:errorEnabled="true"
+            app:counterTextAppearance="@color/white"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -101,7 +113,7 @@
                 android:textColor="#fff"
                 android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_phone_bill"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,7 +137,7 @@
                 android:textColor="#fff"
                 android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_wifi_bill"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -157,7 +169,7 @@
                 android:textColor="#fff"
                 android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_minutes_bill"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -206,6 +218,7 @@
             android:textColor="#FFF"
             android:drawableStart="@drawable/ic_attach_money"
             android:drawablePadding="10dp"
+            android:inputType="number"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -215,10 +228,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/btn_bg"
         android:layout_marginRight="30dp"
         android:textColor="#fff"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        android:layout_marginBottom="20dp"/>
 
 </LinearLayout>
+
+</ScrollView>

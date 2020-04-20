@@ -13,16 +13,18 @@ import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
 import com.example.c0777180_w2020_mad3125_fp.Util.DataRepo;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -59,6 +61,8 @@ public class AddNewCustomerActivity extends AppCompatActivity {
     TextInputEditText email;
     @InjectView(R.id.dob)
     TextInputEditText dob;
+    @InjectView(R.id.emailInputlayout)
+    TextInputLayout emailInputlayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +81,6 @@ public class AddNewCustomerActivity extends AppCompatActivity {
         });
 
 
-
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +89,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
                 year = calendar.get(Calendar.YEAR);
                 month = calendar.get(Calendar.MONTH);
                 dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-                datePickerDialog = new DatePickerDialog(AddNewCustomerActivity.this,R.style.DialogTheme, datePickerListener, year, month, dayOfMonth);
+                datePickerDialog = new DatePickerDialog(AddNewCustomerActivity.this, R.style.DialogTheme, datePickerListener, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
                 datePickerDialog.show();
             }
@@ -97,7 +100,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (id.getText().toString().isEmpty() || fname.getText().toString().isEmpty() || lname.getText().toString().isEmpty() || checkedBox.isEmpty() || email.getText().toString().isEmpty() || dob.getText().toString().isEmpty()){
+                if (id.getText().toString().isEmpty() || fname.getText().toString().isEmpty() || lname.getText().toString().isEmpty() || checkedBox.isEmpty() || email.getText().toString().isEmpty() || dob.getText().toString().isEmpty()) {
                     builder.setMessage("INCOMPLETE FORM")
                             .setCancelable(false)
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -113,18 +116,19 @@ public class AddNewCustomerActivity extends AppCompatActivity {
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                } else if (!validateEmail(email.getText().toString())) {
+                    emailInputlayout.setError("Invalid Email");
+                } else {
+                    Customer customer = new Customer(id.getText().toString(), fname.getText().toString(), lname.getText().toString(), email.getText().toString(), dob.getText().toString(), checkedBox);
+                    DataRepo.getInstance().getAllCustomers().add(customer);
+
+
+                    Intent mIntent = new Intent();
+                    setResult(RESULT_OK, mIntent);
+                    finish();
+
                 }
-
-                else{
-                Customer customer = new Customer(id.getText().toString(), fname.getText().toString(), lname.getText().toString(), email.getText().toString(), dob.getText().toString(), checkedBox);
-                DataRepo.getInstance().getAllCustomers().add(customer);
-
-
-                Intent mIntent = new Intent();
-                setResult(RESULT_OK, mIntent);
-                finish();
-
-            }}
+            }
         });
     }
 
@@ -162,4 +166,13 @@ public class AddNewCustomerActivity extends AppCompatActivity {
         radioOther.setTextColor(Color.WHITE);
     }
 
+    public boolean validateEmail(String s) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(s);
+        return matcher.find();
+    }
 }
+
+
+//https://stackoverflow.com/questions/624581/what-is-the-best-java-email-address-validation-method

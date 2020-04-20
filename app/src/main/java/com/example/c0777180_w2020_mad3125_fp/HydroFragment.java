@@ -1,8 +1,9 @@
 package com.example.c0777180_w2020_mad3125_fp;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,18 +12,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.c0777180_w2020_mad3125_fp.Activities.AddNewBillActivity;
-import com.example.c0777180_w2020_mad3125_fp.Activities.AddNewCustomerActivity;
 import com.example.c0777180_w2020_mad3125_fp.Activities.ShowBillDetailsActivity;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.Models.Hydro;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -52,6 +52,9 @@ public class HydroFragment extends Fragment {
     int month;
     int dayOfMonth;
     Calendar calendar;
+    AlertDialog.Builder builder;
+    @InjectView(R.id.hydroinputID)
+    TextInputLayout hydroinputID;
 
     public HydroFragment() {
     }
@@ -63,6 +66,7 @@ public class HydroFragment extends Fragment {
         ButterKnife.inject(this, view);
         final Intent i = getActivity().getIntent();
         final Customer customer = i.getParcelableExtra("CurrentCustomer");
+        builder = new AlertDialog.Builder(getActivity());
 
 
         hydroBillDate.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +77,7 @@ public class HydroFragment extends Fragment {
                 year = calendar.get(Calendar.YEAR);
                 month = calendar.get(Calendar.MONTH);
                 dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-                datePickerDialog = new DatePickerDialog(getActivity(),R.style.DialogTheme, datePickerListener, year, month, dayOfMonth);
+                datePickerDialog = new DatePickerDialog(getActivity(), R.style.DialogTheme, datePickerListener, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
                 datePickerDialog.show();
             }
@@ -82,21 +86,44 @@ public class HydroFragment extends Fragment {
         hydroSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String id = hydroID.getText().toString();
+                String date = hydroBillDate.getText().toString();
+                String agency = hydroAgencyName.getText().toString();
+
                 Double bill = Double.parseDouble(hydroBillAmount.getText().toString());
                 Integer units = Integer.parseInt(hydroUnitsConsumed.getText().toString());
+
+                if (id.isEmpty() || date.isEmpty() || agency.isEmpty() || hydroBillAmount.getText().toString().isEmpty() || hydroUnitsConsumed.getText().toString().isEmpty()) {
+                    builder.setMessage("INCOMPLETE FORM")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+//
+
+                    //Creating dialog box
+                    AlertDialog alert = builder.create();
+                    //Setting the title manually
+                    alert.setTitle("ERROR");
+                    alert.show();
+                    alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                }
+                else if (!hydroID.getText().toString().contains("HYD")) {
+                    hydroinputID.setError("MUST START WITH HYD");
+                }
+                else{
 
                 Hydro hydro = new Hydro(hydroID.getText().toString(), hydroBillDate.getText().toString(), Bill.BillType.Hydro, bill, hydroAgencyName.getText().toString(), units);
                 customer.addBilltoCustomer(hydro);
 
-                Log.i("MOHIT"+ customer.getCustomerBills().size()+":/<>MOHIT","size is here");
-                //Intent intent = new Intent();
-//                getActivity().setResult(getActivity().RESULT_OK,intent);
-//                getActivity().finish();
-                Intent intent = new Intent(getActivity(),ShowBillDetailsActivity.class);
-                intent.putExtra("CUSTOMERINFO",customer);
+                Intent intent = new Intent(getActivity(), ShowBillDetailsActivity.class);
+                intent.putExtra("CUSTOMERINFO", customer);
                 startActivity(intent);
                 getActivity().finish();
-            }
+            }}
         });
 
         return view;

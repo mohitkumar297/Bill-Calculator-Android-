@@ -51,8 +51,8 @@ public class InternetFragment extends Fragment {
     TextInputEditText internetBillAmount;
     @InjectView(R.id.internetSave)
     Button internetSave;
-    @InjectView(R.id.inputID)
-    TextInputLayout inputID;
+    @InjectView(R.id.internetinputID)
+    TextInputLayout internetinputID;
 
     public InternetFragment() {
     }
@@ -102,7 +102,7 @@ public class InternetFragment extends Fragment {
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
                 } else if (!internetID.getText().toString().contains("INT")) {
-                    inputID.setError("MUST START WITH MOB");
+                    internetinputID.setError("MUST START WITH INT");
                 }
                 else {
 
@@ -127,7 +127,6 @@ public class InternetFragment extends Fragment {
             c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             String format = new SimpleDateFormat("dd-MM-YYYY").format(c.getTime());
             internetBillDate.setText(format);
-            //FOR AGE DISPLAY txtTaxFilingDate.setText(Integer.toString(calculateAge(c.getTimeInMillis())));
         }
 
 

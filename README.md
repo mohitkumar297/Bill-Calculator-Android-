@@ -31,6 +31,12 @@
 #### After clicking any of the two Log out button alert appears
 <img src="https://user-images.githubusercontent.com/60120967/79801325-ed857400-832b-11ea-846c-95ea320ef64d.png" width="230">
 
+#### References
+https://material.io/develop/android/components/text-fields/
+https://developer.android.com/reference/android/support/design/widget/TextInputLayout
+https://icons8.com/icons
+https://stackoverflow.com/questions/8323778/how-to-set-onclicklistener-on-a-radiobutton-in-android
+https://stackoverflow.com/questions/624581/what-is-the-best-java-email-address-validation-method
 
 
 

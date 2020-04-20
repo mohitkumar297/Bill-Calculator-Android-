@@ -6,11 +6,6 @@
     android:orientation="vertical"
     android:background="@drawable/bg_form">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icons8water"
-        android:layout_marginTop="15dp"/>
 
 <com.google.android.material.textfield.TextInputLayout
     android:layout_width="match_parent"
@@ -19,7 +14,7 @@
     android:textColorHint="@color/form_details_medium"
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
-    android:layout_marginTop="80dp"
+    android:layout_marginTop="70dp"
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
     <com.google.android.material.textfield.TextInputEditText
@@ -28,6 +23,8 @@
         android:hint="ENTER BILL ID"
         android:id="@+id/hydroID"
         android:textColor="#FFF"
+        android:drawableStart="@drawable/ic_id_bill"
+        android:drawablePadding="10dp"
         />
 
 </com.google.android.material.textfield.TextInputLayout>
@@ -48,6 +45,8 @@
             android:hint="Bill Date"
             android:id="@+id/hydroBillDate"
             android:textColor="#FFF"
+            android:drawableStart="@drawable/ic_date_range_bill"
+            android:drawablePadding="10dp"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -68,6 +67,8 @@
             android:hint="Bill Amount"
             android:id="@+id/hydroBillAmount"
             android:textColor="#FFF"
+            android:drawableStart="@drawable/ic_attach_money"
+            android:drawablePadding="10dp"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -88,6 +89,8 @@
             android:hint="Agency Name"
             android:id="@+id/hydroAgencyName"
             android:textColor="#FFF"
+            android:drawableStart="@drawable/ic_agency_bill"
+            android:drawablePadding="10dp"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -109,6 +112,8 @@
             android:hint="Units Consumed"
             android:id="@+id/hydroUnitsConsumed"
             android:textColor="#FFF"
+            android:drawableStart="@drawable/ic_agency_bill"
+            android:drawablePadding="10dp"
             />
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -1,5 +1,6 @@
 package com.example.c0777180_w2020_mad3125_fp;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -108,9 +109,9 @@ public class InternetFragment extends Fragment {
                     Integer internetgb = Integer.parseInt(internetUnitsConsumed.getText().toString());
                     Internet internet = new Internet(internetID.getText().toString(),internetBillDate.getText().toString(), Bill.BillType.Internet,bill,internetAgencyName.getText().toString(),internetgb);
                     customer.addBilltoCustomer(internet);
-                    Intent intent = new Intent(getActivity(), ShowBillDetailsActivity.class);
-                    intent.putExtra("CUSTOMERINFO",customer);
-                    startActivity(intent);
+                    Intent intent = new Intent();
+                    intent.putExtra("CUSTOMERINFO", customer);
+                    getActivity().setResult(Activity.RESULT_OK,intent);
                     getActivity().finish();
                 }
             }

@@ -1,5 +1,6 @@
 package com.example.c0777180_w2020_mad3125_fp;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -110,9 +111,9 @@ public class MobileFragment extends Fragment {
                     Mobile mobile = new Mobile(id,date, Bill.BillType.Mobile,bill,mob,internetused,minutes,manufacturer,plan);
                     customer.addBilltoCustomer(mobile);
 
-                    Intent intent = new Intent(getActivity(), ShowBillDetailsActivity.class);
+                    Intent intent = new Intent();
                     intent.putExtra("CUSTOMERINFO", customer);
-                    startActivity(intent);
+                    getActivity().setResult(Activity.RESULT_OK,intent);
                     getActivity().finish();
                 }
 

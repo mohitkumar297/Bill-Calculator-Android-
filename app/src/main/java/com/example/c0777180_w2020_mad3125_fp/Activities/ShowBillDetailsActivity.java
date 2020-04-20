@@ -73,6 +73,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                 Customer customer = getCustomer();
                 in.putExtra("CurrentCustomer", customer);
                 startActivityForResult(in, 1);
+                //finish();
                 return true;
             case R.id.item2:
 
@@ -125,38 +126,22 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         customerDateOfBirth.setText(customer.getDateOfBirth());
         customerGender.setText(customer.getGender());
         customerEmail.setText(customer.getEmailID());
-        customerTotalBill.setText("" + customer.calculateBill());
+        customerTotalBill.setText("$" + customer.calculateBill());
 
         billListAdapter = new BillListAdapter(billArrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvBillList.setLayoutManager(layoutManager);
         rvBillList.setAdapter(billListAdapter);
 
-//        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                billArrayList.addAll(billArrayList);
-//                billListAdapter.notifyDataSetChanged();
-//                swipeRefresh.setRefreshing(false);
-//            }
-//        });
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        billArrayList.clear();
-//        Intent mintent = getIntent();
-//        Customer customer1 = (Customer) mintent.getParcelableExtra("CUSTOMEROBJECT");
-//        billArrayList.addAll(customer1.getCustomerBills());
-//    }
-
-//    public void updateReceiptsList(ArrayList<Bill> billArrayList) {
-//        this.billArrayList = billArrayList;
-//        billArrayList.clear();
-//        billArrayList.addAll(this.billArrayList);
-//        this.notifyDataSetChanged();
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Customer customer = getCustomer();
+        customerTotalBill.setText("$" + customer.calculateBill());
+        billListAdapter.notifyDataSetChanged();
+    }
 
     public Customer getCustomer() {
         Intent intent = getIntent();
@@ -165,18 +150,20 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == -1) {
-            billListAdapter.onActivityResult(requestCode, 1);
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK){
+                Customer customer = data.getParcelableExtra("CUSTOMERINFO");
+                billArrayList.clear();
+                billArrayList.addAll(customer.getCustomerBills());
+                billListAdapter.notifyDataSetChanged();
+            }
         }
     }
 
     public ArrayList<Bill> populateBills() {
         billArrayList = new ArrayList<>();
         billArrayList = getCustomer().getCustomerBills();
-        Log.i(" MOHIT" + getCustomer().getCustomerBills().size() + ":/<>MOHIT", "size is here populate");
         return billArrayList;
     }
 }

@@ -19,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/login_icon"/>
+        android:layout_marginLeft="150dp"
+        android:src="@drawable/thunder"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"

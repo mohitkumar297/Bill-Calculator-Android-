@@ -62,6 +62,4 @@
         android:src="@drawable/ic_exit"
         android:layout_margin="5dp"
         android:backgroundTint="#000" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

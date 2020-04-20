@@ -18,10 +18,10 @@ public class SplashActivity extends AppCompatActivity {
         EasySplashScreen config = new EasySplashScreen(SplashActivity.this)
                 .withFullScreen()
                 .withTargetActivity((LoginActivity.class))
-                .withSplashTimeOut(1000)
+                .withSplashTimeOut(5000)
                 .withBackgroundColor(Color.parseColor("#000000"))
-                .withAfterLogoText("Mohit Kumar\n\n  C0777180")
-                .withLogo(R.drawable.splash_icon);
+                .withAfterLogoText("\n\n\nMohit Kumar\n\n  C0777180")
+                .withLogo(R.drawable.cost);
 
         config.getAfterLogoTextView().setTextColor(Color.WHITE);
         config.getAfterLogoTextView().setTextSize(20);

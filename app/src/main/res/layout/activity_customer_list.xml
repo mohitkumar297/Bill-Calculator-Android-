@@ -35,7 +35,6 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/recyclerView"
         app:layout_constraintHorizontal_bias="0.909"
@@ -44,6 +43,7 @@
         app:layout_constraintVertical_bias="0.931"
         app:fabSize="normal"
         android:backgroundTint="#000"
+        android:layout_margin="5dp"
         android:elevation="6dp"
         android:src="@drawable/ic_add_black_24dp"
         android:id="@+id/customerAdd"/>
@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.911"
         android:src="@drawable/ic_exit"
         android:layout_margin="5dp"
-        android:background="#619196" />
+        android:backgroundTint="#000" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

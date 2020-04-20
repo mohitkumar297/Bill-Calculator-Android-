@@ -31,7 +31,6 @@
         android:textColor="#FFF"
         android:drawableStart="@drawable/ic_id_bill"
         android:drawablePadding="10dp"
-        android:inputType="number"
         />
 
 </com.google.android.material.textfield.TextInputLayout>

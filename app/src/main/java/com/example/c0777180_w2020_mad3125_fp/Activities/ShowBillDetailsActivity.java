@@ -23,6 +23,7 @@ import com.example.c0777180_w2020_mad3125_fp.Adapters.BillListAdapter;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
+import com.example.c0777180_w2020_mad3125_fp.Util.DataFormatting;
 
 import java.util.ArrayList;
 
@@ -126,7 +127,8 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         customerDateOfBirth.setText(customer.getDateOfBirth());
         customerGender.setText(customer.getGender());
         customerEmail.setText(customer.getEmailID());
-        customerTotalBill.setText("$" + customer.calculateBill());
+        customerTotalBill.setText(DataFormatting.stringToDouble(customer.calculateBill()));
+        //customerTotalBill.setText(String.format("$ "+ "%,.2f",customer.calculateBill()));
 
         billListAdapter = new BillListAdapter(billArrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

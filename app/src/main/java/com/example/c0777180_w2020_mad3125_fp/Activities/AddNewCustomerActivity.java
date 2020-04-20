@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.R;
+import com.example.c0777180_w2020_mad3125_fp.Util.DataFormatting;
 import com.example.c0777180_w2020_mad3125_fp.Util.DataRepo;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -116,9 +117,28 @@ public class AddNewCustomerActivity extends AppCompatActivity {
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
-                } else if (!validateEmail(email.getText().toString())) {
+                }
+//                } else if (!validateEmail(email.getText().toString())) {
+                else if(!DataFormatting.validateEmail(email.getText().toString())) {
                     emailInputlayout.setError("Invalid Email");
-                } else {
+                    builder.setMessage("Enter Valid Email!")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+//
+
+                    //Creating dialog box
+                    AlertDialog alert = builder.create();
+                    //Setting the title manually
+                    alert.setTitle("ERROR");
+                    alert.show();
+                    alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+
+                }
+                else {
                     Customer customer = new Customer(id.getText().toString(), fname.getText().toString(), lname.getText().toString(), email.getText().toString(), dob.getText().toString(), checkedBox);
                     DataRepo.getInstance().getAllCustomers().add(customer);
 
@@ -166,12 +186,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
         radioOther.setTextColor(Color.WHITE);
     }
 
-    public boolean validateEmail(String s) {
-        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(s);
-        return matcher.find();
-    }
+
 }
 
 

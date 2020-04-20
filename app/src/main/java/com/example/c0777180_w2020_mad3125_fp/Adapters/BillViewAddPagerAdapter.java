@@ -1,4 +1,4 @@
-package com.example.c0777180_w2020_mad3125_fp;
+package com.example.c0777180_w2020_mad3125_fp.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

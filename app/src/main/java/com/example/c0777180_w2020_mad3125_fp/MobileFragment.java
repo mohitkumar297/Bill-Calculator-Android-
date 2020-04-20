@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.Models.Mobile;
+import com.example.c0777180_w2020_mad3125_fp.Util.DataFormatting;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -103,8 +104,26 @@ public class MobileFragment extends Fragment {
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
                 } else if (!mobileID.getText().toString().contains("MOB")) {
                     mobileinputLayout.setError("MUST START WITH MOB");
-                } else if (mobileMobile.getText().toString().length() != 10){
-                    mobilelength.setError("Invalid Mobile Number");
+                }
+
+                else if (!DataFormatting.mobileValidate(mobileMobile.getText().toString())){
+                    mobilelength.setError("Invalid Mobile");
+                    builder.setMessage("Enter Valid Mobile Number")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+//
+
+                    //Creating dialog box
+                    AlertDialog alert = builder.create();
+                    //Setting the title manually
+                    alert.setTitle("ERROR");
+                    alert.show();
+                    alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+
                 }
                 else{
                     Double bill = Double.parseDouble(mobileBillAmount.getText().toString());

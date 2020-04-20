@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bg_form">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -12,19 +13,210 @@
         android:textColorHint="@color/form_details_medium"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="35dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ENTER BILL ID"
-            android:id="@+id/hydroID"
+            android:hint="Enter Bill ID"
+            android:id="@+id/mobileID"
             android:textColor="#FFF"
             android:drawableStart="@drawable/ic_id_bill"
             android:drawablePadding="10dp"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:textColorHint="@color/form_details_medium"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bill Date"
+            android:id="@+id/mobileBillDate"
+            android:textColor="#FFF"
+            android:drawableStart="@drawable/ic_date_range_bill"
+            android:drawablePadding="10dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:textColorHint="@color/form_details_medium"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Manufacturer Name"
+            android:id="@+id/mobileManufacturer"
+            android:textColor="#FFF"
+            android:drawableStart="@drawable/ic_agency_bill"
+            android:drawablePadding="10dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColorHint="@color/form_details_medium"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobileMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Mobile Number"
+                android:textColor="#fff"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_phone_bill"
+                android:inputType="textPersonName"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="@color/form_details_medium"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobileInternet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Internet Used"
+                android:textColor="#fff"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_wifi_bill"
+                android:inputType="textPersonName"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColorHint="@color/form_details_medium"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobileMinutes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Minutes Used"
+                android:textColor="#fff"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_minutes_bill"
+                android:inputType="textPersonName"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="@color/form_details_medium"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobilePlan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Plan Name"
+                android:textColor="#fff"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/ic_plan_bill"
+                android:inputType="textPersonName"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:textColorHint="@color/form_details_medium"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bill Amount"
+            android:id="@+id/mobileBillAmount"
+            android:textColor="#FFF"
+            android:drawableStart="@drawable/ic_attach_money"
+            android:drawablePadding="10dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:text="Save"
+        android:id="@+id/mobileSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_bg"
+        android:layout_marginRight="30dp"
+        android:textColor="#fff"
+        android:textSize="18dp"/>
 
 </LinearLayout>

@@ -20,7 +20,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ENTER BILL ID"
+        android:hint="Enter Bill ID"
         android:id="@+id/hydroID"
         android:textColor="#FFF"
         android:drawableStart="@drawable/ic_id_bill"
@@ -51,27 +51,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        android:textColorHint="@color/form_details_medium"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Bill Amount"
-            android:id="@+id/hydroBillAmount"
-            android:textColor="#FFF"
-            android:drawableStart="@drawable/ic_attach_money"
-            android:drawablePadding="10dp"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -118,6 +97,27 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:textColorHint="@color/form_details_medium"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bill Amount"
+            android:id="@+id/hydroBillAmount"
+            android:textColor="#FFF"
+            android:drawableStart="@drawable/ic_attach_money"
+            android:drawablePadding="10dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:text="Save"

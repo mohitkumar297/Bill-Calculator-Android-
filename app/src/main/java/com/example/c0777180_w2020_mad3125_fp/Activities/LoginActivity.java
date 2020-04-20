@@ -83,9 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                                     finish();
                                 }
                             });
-                    //Creating dialog box
                     AlertDialog alert = builder.create();
-                    //Setting the title manually
                     alert.setTitle("Access Denied!");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);

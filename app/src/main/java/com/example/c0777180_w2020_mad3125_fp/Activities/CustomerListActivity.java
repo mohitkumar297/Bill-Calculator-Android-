@@ -65,21 +65,14 @@ public class CustomerListActivity extends AppCompatActivity {
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                //  Action for 'NO' Button
                                 dialog.cancel();
                             }
                         });
-                //Creating dialog box
                 AlertDialog alert = builder.create();
-                //Setting the title manually
                 alert.setTitle("LOGOUT");
                 alert.show();
                 alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
                 alert.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
-//                Intent mIntent = new Intent(CustomerListActivity.this,LoginActivity.class);
-//                startActivity(mIntent);
-//                finish();
-
             }
         });
 

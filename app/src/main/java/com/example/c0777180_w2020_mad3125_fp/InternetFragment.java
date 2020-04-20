@@ -93,11 +93,7 @@ public class InternetFragment extends Fragment {
                                     dialog.cancel();
                                 }
                             });
-//
-
-                    //Creating dialog box
                     AlertDialog alert = builder.create();
-                    //Setting the title manually
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);

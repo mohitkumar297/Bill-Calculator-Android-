@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class DataRepo {
     private static DataRepo instance = new DataRepo();
     private ArrayList<Customer> customerArrayList = new ArrayList<>();
-    //private HashMap<String, Bill> customerBills = new HashMap<>();
     private DataRepo() {
         loadData();
     }
@@ -25,33 +24,33 @@ public class DataRepo {
     }
 
     public void loadData(){
-        Hydro H1 = new Hydro("HYD001","12/02/2020", Bill.BillType.Hydro,203.4,"Liquid flow",345);
+        Hydro H1 = new Hydro("HYD001","12-02-2020", Bill.BillType.Hydro,203.4,"Liquid flow",345);
 
-        Hydro H2 = new Hydro("HYD002","31/03/2020", Bill.BillType.Hydro,53.1,"H2O World",100);
+        Hydro H2 = new Hydro("HYD002","31-03-2020", Bill.BillType.Hydro,53.1,"H2O World",100);
 
-        Hydro H3 = new Hydro("HYD003","12/05/2020", Bill.BillType.Hydro,77.2,"Liquid flow",127);
+        Hydro H3 = new Hydro("HYD003","12-05-2020", Bill.BillType.Hydro,77.2,"Liquid flow",127);
 
-        Mobile M1 = new Mobile("MOB101","19/04/2020", Bill.BillType.Mobile,98,"6475406638",36,312,"Rogers","Mega Deal");
+        Mobile M1 = new Mobile("MOB101","19-04-2020", Bill.BillType.Mobile,98,"6475406638",36,312,"Rogers","Mega Deal");
 
-        Mobile M2 = new Mobile("MOB102","10/04/2020", Bill.BillType.Mobile,54,"8054626109",41,452,"Bell","All Time ");
+        Mobile M2 = new Mobile("MOB102","10-04-2020", Bill.BillType.Mobile,54,"8054626109",41,452,"Bell","All Time ");
 
-        Internet I1 = new Internet("INT111","04/03/2020",Bill.BillType.Internet,57.12,"Freedom Mobile", 14);
+        Internet I1 = new Internet("INT111","04-03-2020",Bill.BillType.Internet,57.12,"Freedom Mobile", 14);
 
-        Internet I2 = new Internet("INT112","11/09/2019",Bill.BillType.Internet,36.89,"Fido", 4);
+        Internet I2 = new Internet("INT112","11-09-2019",Bill.BillType.Internet,36.89,"Fido", 4);
 
         Internet I3 = new Internet("INT112","07-04-2020",Bill.BillType.Internet,103.87,"Telus",76);
 
         Internet I4 = new Internet("INT113","28-02-2020",Bill.BillType.Internet,50.12,"Vodafone",47);
 
-        Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","24/08/1998","Male");
+        Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","24-08-1998","Male");
 
-        Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","21/01/2000","  Female");
+        Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","21-01-2000","  Female");
 
-        Customer C3 = new Customer("C003","Jordan","Henderson","jorhen@gmail.com","08/04/1999","Male");
+        Customer C3 = new Customer("C003","Jordan","Henderson","jorhen@gmail.com","08-04-1999","Male");
 
-        Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","13/08/1981","Male");
+        Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","13-08-1981","Male");
 
-        Customer C5 = new Customer("C005","Roberto","Firmino","robfirm@hotmail.com","20=08-1989","Female");
+        Customer C5 = new Customer("C005","Roberto","Firmino","robfirm@hotmail.com","20-08-1989","Female");
         C1.addBilltoCustomer(H1);
         C1.addBilltoCustomer(M1);
 

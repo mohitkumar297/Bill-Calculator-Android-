@@ -10,7 +10,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/bg_form">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Must contain 'INT' "
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="15dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -19,7 +26,7 @@
         android:textColorHint="@color/form_details_medium"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/internetinputID"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 

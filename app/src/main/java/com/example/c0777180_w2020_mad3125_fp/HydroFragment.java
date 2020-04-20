@@ -102,11 +102,8 @@ public class HydroFragment extends Fragment {
                                     dialog.cancel();
                                 }
                             });
-//
 
-                    //Creating dialog box
                     AlertDialog alert = builder.create();
-                    //Setting the title manually
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
@@ -138,7 +135,6 @@ public class HydroFragment extends Fragment {
             c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             String format = new SimpleDateFormat("dd-MM-YYYY").format(c.getTime());
             hydroBillDate.setText(format);
-            //FOR AGE DISPLAY txtTaxFilingDate.setText(Integer.toString(calculateAge(c.getTimeInMillis())));
         }
 
 

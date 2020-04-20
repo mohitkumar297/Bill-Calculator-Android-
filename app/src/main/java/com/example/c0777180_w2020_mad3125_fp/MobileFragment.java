@@ -94,11 +94,7 @@ public class MobileFragment extends Fragment {
                                     dialog.cancel();
                                 }
                             });
-//
-
-                    //Creating dialog box
                     AlertDialog alert = builder.create();
-                    //Setting the title manually
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
@@ -115,15 +111,10 @@ public class MobileFragment extends Fragment {
                                     dialog.cancel();
                                 }
                             });
-//
-
-                    //Creating dialog box
                     AlertDialog alert = builder.create();
-                    //Setting the title manually
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
-
                 }
                 else{
                     Double bill = Double.parseDouble(mobileBillAmount.getText().toString());
@@ -168,7 +159,6 @@ public class MobileFragment extends Fragment {
             c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             String format = new SimpleDateFormat("dd-MM-YYYY").format(c.getTime());
             mobileBillDate.setText(format);
-            //FOR AGE DISPLAY txtTaxFilingDate.setText(Integer.toString(calculateAge(c.getTimeInMillis())));
         }
 
 

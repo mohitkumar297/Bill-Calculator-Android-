@@ -16,6 +16,7 @@ import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
 import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
 import com.example.c0777180_w2020_mad3125_fp.Models.Hydro;
 import com.example.c0777180_w2020_mad3125_fp.R;
+import com.example.c0777180_w2020_mad3125_fp.Util.DataFormatting;
 
 import java.util.ArrayList;
 
@@ -47,7 +48,7 @@ public class BillListAdapter extends RecyclerView.Adapter<BillListAdapter.BillLi
         else {
             holder.imgBill.setImageResource(R.drawable.icons8water);
         }
-        holder.txtDetail.setText("Bill Type : "+bill.getBillType()+"\n"+"Total Amount : $"+bill.getBillAmount());
+        holder.txtDetail.setText("Bill Type : "+bill.getBillType()+"\n"+"Total Amount : "+ DataFormatting.stringToDouble(bill.getBillAmount()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -52,12 +52,6 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     private BillListAdapter billListAdapter;
     private ArrayList<Bill> billArrayList;
 
-
-//    private ArrayList<Bill> Bills;
-//    private ArrayList<Bill> internetBill;
-//    private ArrayList<Bill> hydroBill;
-//    private ArrayList<Bill> mobileBill;
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -74,7 +68,6 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                 Customer customer = getCustomer();
                 in.putExtra("CurrentCustomer", customer);
                 startActivityForResult(in, 1);
-                //finish();
                 return true;
             case R.id.item2:
 
@@ -89,13 +82,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                //  Action for 'NO' Button
                                 dialog.cancel();
                             }
                         });
-                //Creating dialog box
                 AlertDialog alert = builder.create();
-                //Setting the title manually
                 alert.setTitle("LOGOUT");
                 alert.show();
                 alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
@@ -128,7 +118,6 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
         customerGender.setText(customer.getGender());
         customerEmail.setText(customer.getEmailID());
         customerTotalBill.setText(DataFormatting.stringToDouble(customer.calculateBill()));
-        //customerTotalBill.setText(String.format("$ "+ "%,.2f",customer.calculateBill()));
 
         billListAdapter = new BillListAdapter(billArrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -141,7 +130,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Customer customer = getCustomer();
-        customerTotalBill.setText("$" + customer.calculateBill());
+        customerTotalBill.setText(DataFormatting.stringToDouble(customer.calculateBill()));
         billListAdapter.notifyDataSetChanged();
     }
 

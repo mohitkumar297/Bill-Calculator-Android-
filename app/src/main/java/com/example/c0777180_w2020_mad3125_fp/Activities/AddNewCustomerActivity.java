@@ -109,16 +109,12 @@ public class AddNewCustomerActivity extends AppCompatActivity {
                                     dialog.cancel();
                                 }
                             });
-//
 
-                    //Creating dialog box
                     AlertDialog alert = builder.create();
-                    //Setting the title manually
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
                 }
-//                } else if (!validateEmail(email.getText().toString())) {
                 else if(!DataFormatting.validateEmail(email.getText().toString())) {
                     emailInputlayout.setError("Invalid Email");
                     builder.setMessage("Enter Valid Email!")
@@ -128,11 +124,8 @@ public class AddNewCustomerActivity extends AppCompatActivity {
                                     dialog.cancel();
                                 }
                             });
-//
 
-                    //Creating dialog box
                     AlertDialog alert = builder.create();
-                    //Setting the title manually
                     alert.setTitle("ERROR");
                     alert.show();
                     alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
@@ -161,7 +154,6 @@ public class AddNewCustomerActivity extends AppCompatActivity {
             c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             String format = new SimpleDateFormat("dd-MM-YYYY").format(c.getTime());
             dob.setText(format);
-            //FOR AGE DISPLAY txtTaxFilingDate.setText(Integer.toString(calculateAge(c.getTimeInMillis())));
         }
 
 

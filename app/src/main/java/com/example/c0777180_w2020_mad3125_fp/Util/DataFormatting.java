@@ -7,7 +7,7 @@ public class DataFormatting {
 
     public static String stringToDouble(Double d)
     {
-        return String.format("$ " + "%.2f", d);
+        return String.format("$ " + "%,.2f", d);
     }
     public static boolean validateEmail(String s) {
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";

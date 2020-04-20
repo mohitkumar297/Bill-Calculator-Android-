@@ -7,16 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 public class MobileFragment extends Fragment {
     DatePickerDialog datePickerDialog;
@@ -25,6 +28,25 @@ public class MobileFragment extends Fragment {
     int dayOfMonth;
     Calendar calendar;
     View view;
+    @InjectView(R.id.mobileID)
+    TextInputEditText mobileID;
+    @InjectView(R.id.mobileBillDate)
+    TextInputEditText mobileBillDate;
+    @InjectView(R.id.mobileManufacturer)
+    TextInputEditText mobileManufacturer;
+    @InjectView(R.id.mobileMobile)
+    TextInputEditText mobileMobile;
+    @InjectView(R.id.mobileInternet)
+    TextInputEditText mobileInternet;
+    @InjectView(R.id.mobileMinutes)
+    TextInputEditText mobileMinutes;
+    @InjectView(R.id.mobilePlan)
+    TextInputEditText mobilePlan;
+    @InjectView(R.id.mobileBillAmount)
+    TextInputEditText mobileBillAmount;
+    @InjectView(R.id.mobileSave)
+    Button mobileSave;
+
     public MobileFragment() {
     }
 
@@ -32,10 +54,11 @@ public class MobileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.mobile_fragment,container,false);
+        view = inflater.inflate(R.layout.mobile_fragment, container, false);
+        ButterKnife.inject(this, view);
 
 
-        hydroBillDate.setOnClickListener(new View.OnClickListener() {
+        mobileBillDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -43,7 +66,7 @@ public class MobileFragment extends Fragment {
                 year = calendar.get(Calendar.YEAR);
                 month = calendar.get(Calendar.MONTH);
                 dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-                datePickerDialog = new DatePickerDialog(getActivity(),R.style.DialogTheme, datePickerListener, year, month, dayOfMonth);
+                datePickerDialog = new DatePickerDialog(getActivity(), R.style.DialogTheme, datePickerListener, year, month, dayOfMonth);
                 datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
                 datePickerDialog.show();
             }
@@ -60,7 +83,7 @@ public class MobileFragment extends Fragment {
             c.set(Calendar.MONTH, month);
             c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             String format = new SimpleDateFormat("dd-MM-YYYY").format(c.getTime());
-            dob.setText(format);
+            mobileBillDate.setText(format);
             //FOR AGE DISPLAY txtTaxFilingDate.setText(Integer.toString(calculateAge(c.getTimeInMillis())));
         }
 

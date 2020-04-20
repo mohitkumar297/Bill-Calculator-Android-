@@ -1,6 +1,9 @@
 package com.example.c0777180_w2020_mad3125_fp;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +13,15 @@ import android.widget.DatePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.example.c0777180_w2020_mad3125_fp.Activities.ShowBillDetailsActivity;
+import com.example.c0777180_w2020_mad3125_fp.Models.Bill;
+import com.example.c0777180_w2020_mad3125_fp.Models.Customer;
+import com.example.c0777180_w2020_mad3125_fp.Models.Mobile;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -47,6 +56,10 @@ public class MobileFragment extends Fragment {
     @InjectView(R.id.mobileSave)
     Button mobileSave;
 
+    AlertDialog.Builder builder;
+    @InjectView(R.id.mobileinputLayout)
+    TextInputLayout mobileinputLayout;
+
     public MobileFragment() {
     }
 
@@ -56,6 +69,55 @@ public class MobileFragment extends Fragment {
 
         view = inflater.inflate(R.layout.mobile_fragment, container, false);
         ButterKnife.inject(this, view);
+        builder = new AlertDialog.Builder(getActivity());
+        final Intent i = getActivity().getIntent();
+        final Customer customer = i.getParcelableExtra("CurrentCustomer");
+
+        mobileSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = mobileID.getText().toString();
+                String date = mobileBillDate.getText().toString();
+                String manufacturer = mobileManufacturer.getText().toString();
+                String plan = mobilePlan.getText().toString();
+                String mob = mobileMobile.getText().toString();
+
+
+                if (id.isEmpty() || date.isEmpty() || manufacturer.isEmpty() || plan.isEmpty() || mob.isEmpty() || mobileBillAmount.getText().toString().isEmpty() || mobileInternet.getText().toString().isEmpty() || mobileMinutes.getText().toString().isEmpty()) {
+                    builder.setMessage("INCOMPLETE FORM")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+//
+
+                    //Creating dialog box
+                    AlertDialog alert = builder.create();
+                    //Setting the title manually
+                    alert.setTitle("ERROR");
+                    alert.show();
+                    alert.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+                }
+                else if (!mobileID.getText().toString().contains("MOB")){
+                    mobileinputLayout.setError("MUST START WITH MOB");
+                }
+                else {
+                    Double bill = Double.parseDouble(mobileBillAmount.getText().toString());
+                    Integer internetused = Integer.parseInt(mobileInternet.getText().toString());
+                    Integer minutes = Integer.parseInt(mobileMinutes.getText().toString());
+                    Mobile mobile = new Mobile(id,date, Bill.BillType.Mobile,bill,mob,internetused,minutes,manufacturer,plan);
+                    customer.addBilltoCustomer(mobile);
+
+                    Intent intent = new Intent(getActivity(), ShowBillDetailsActivity.class);
+                    intent.putExtra("CUSTOMERINFO", customer);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
+
+            }
+        });
 
 
         mobileBillDate.setOnClickListener(new View.OnClickListener() {

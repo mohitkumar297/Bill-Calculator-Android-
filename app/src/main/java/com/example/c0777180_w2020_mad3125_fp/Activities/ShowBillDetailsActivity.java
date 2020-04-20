@@ -48,8 +48,6 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
     @InjectView(R.id.rvBillList)
     RecyclerView rvBillList;
-    @InjectView(R.id.swipeRefresh)
-    SwipeRefreshLayout swipeRefresh;
     private BillListAdapter billListAdapter;
     private ArrayList<Bill> billArrayList;
 

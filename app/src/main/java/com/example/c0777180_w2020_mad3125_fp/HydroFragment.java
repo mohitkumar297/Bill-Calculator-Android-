@@ -91,8 +91,7 @@ public class HydroFragment extends Fragment {
                 String date = hydroBillDate.getText().toString();
                 String agency = hydroAgencyName.getText().toString();
 
-                Double bill = Double.parseDouble(hydroBillAmount.getText().toString());
-                Integer units = Integer.parseInt(hydroUnitsConsumed.getText().toString());
+
 
                 if (id.isEmpty() || date.isEmpty() || agency.isEmpty() || hydroBillAmount.getText().toString().isEmpty() || hydroUnitsConsumed.getText().toString().isEmpty()) {
                     builder.setMessage("INCOMPLETE FORM")
@@ -115,7 +114,8 @@ public class HydroFragment extends Fragment {
                     hydroinputID.setError("MUST START WITH HYD");
                 }
                 else{
-
+                    Double bill = Double.parseDouble(hydroBillAmount.getText().toString());
+                    Integer units = Integer.parseInt(hydroUnitsConsumed.getText().toString());
                 Hydro hydro = new Hydro(hydroID.getText().toString(), hydroBillDate.getText().toString(), Bill.BillType.Hydro, bill, hydroAgencyName.getText().toString(), units);
                 customer.addBilltoCustomer(hydro);
 

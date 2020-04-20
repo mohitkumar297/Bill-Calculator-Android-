@@ -83,8 +83,7 @@ public class InternetFragment extends Fragment {
         internetSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double bill = Double.parseDouble(internetBillAmount.getText().toString());
-                Integer internetgb = Integer.parseInt(internetUnitsConsumed.getText().toString());
+
                 if (internetID.getText().toString().isEmpty() || internetBillDate.getText().toString().isEmpty() || internetAgencyName.getText().toString().isEmpty() || internetUnitsConsumed.getText().toString().isEmpty() || internetBillAmount.getText().toString().isEmpty()) {
                     builder.setMessage("INCOMPLETE FORM")
                             .setCancelable(false)
@@ -105,7 +104,8 @@ public class InternetFragment extends Fragment {
                     internetinputID.setError("MUST START WITH INT");
                 }
                 else {
-
+                    Double bill = Double.parseDouble(internetBillAmount.getText().toString());
+                    Integer internetgb = Integer.parseInt(internetUnitsConsumed.getText().toString());
                     Internet internet = new Internet(internetID.getText().toString(),internetBillDate.getText().toString(), Bill.BillType.Internet,bill,internetAgencyName.getText().toString(),internetgb);
                     customer.addBilltoCustomer(internet);
                     Intent intent = new Intent(getActivity(), ShowBillDetailsActivity.class);

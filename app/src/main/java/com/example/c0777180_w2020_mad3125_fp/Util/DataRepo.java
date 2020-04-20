@@ -39,6 +39,10 @@ public class DataRepo {
 
         Internet I2 = new Internet("INT112","11/09/2019",Bill.BillType.Internet,36.89,"Fido", 4);
 
+        Internet I3 = new Internet("INT112","07-04-2020",Bill.BillType.Internet,103.87,"Telus",76);
+
+        Internet I4 = new Internet("INT113","28-02-2020",Bill.BillType.Internet,50.12,"Vodafone",47);
+
         Customer C1 = new Customer("C001","Steven","Gerrard","steven@gmail.com","24/08/1998","Male");
 
         Customer C2 = new Customer("C002","Sadio","Mane","sadiom@yahoo.com","21/01/2000","  Female");
@@ -47,6 +51,7 @@ public class DataRepo {
 
         Customer C4 = new Customer("C004","James","Milner","jamilner@gmail.com","13/08/1981","Male");
 
+        Customer C5 = new Customer("C005","Roberto","Firmino","robfirm@hotmail.com","20=08-1989","Female");
         C1.addBilltoCustomer(H1);
         C1.addBilltoCustomer(M1);
 
@@ -57,12 +62,15 @@ public class DataRepo {
         C3.addBilltoCustomer(I2);
 
         C4.addBilltoCustomer(M2);
+        C4.addBilltoCustomer(I4);
+
+        C5.addBilltoCustomer(I3);
 
         customerArrayList.add(C1);
         customerArrayList.add(C2);
         customerArrayList.add(C3);
         customerArrayList.add(C4);
-
+        customerArrayList.add(C5);
 
 
     }

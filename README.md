@@ -1,5 +1,6 @@
 # C0777180_W2020_MAD3125_MidTerm
-## TAX CALCULATOR
+## 
+BILL CALCULATOR
 ## Contributers
 ### Mohit Kumar  C0777180
 
